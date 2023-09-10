@@ -9,6 +9,7 @@
 </head>
 <body>
     boardlist
+    aaasdfasdf
 
     ${vo}
 </body>

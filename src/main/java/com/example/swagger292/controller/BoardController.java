@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.example.swagger292.service.BoardService;
 import com.example.swagger292.vo.BoardVo;
@@ -22,12 +23,22 @@ public class BoardController {
         this.boardService = boardService;
     }
 
-    @RequestMapping("/list")
-    public String list(Model model){
+    @RequestMapping("/list/test")
+    public String listtest(Model model){
         ArrayList<BoardVo> vo = boardService.selectList();
-        System.out.println(vo);
-        model.addAttribute("vo", vo);
-        return "boardlist";
+        // System.out.println(vo.toString());
+        model.addAttribute("list", vo.toString());
+        return vo.toString();
+    }
+
+    @RequestMapping("/list")
+    public ModelAndView list(){
+        ArrayList<BoardVo> vo = boardService.selectList();
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("boardlist");
+        mav.addObject("vo", vo);
+        // System.out.println(vo.toString());
+        return mav;
     }
     
 }

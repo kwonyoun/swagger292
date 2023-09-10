@@ -39,6 +39,8 @@ dependencies {
 	//import org.apache.ibatis.annotations.Mapper; dao에서 @Mapper 라이브러리
 	implementation('org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4')
 
+	implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:2.0.0'
+
 
 }
 
