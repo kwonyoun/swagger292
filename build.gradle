@@ -1,7 +1,7 @@
 plugins {
 	id 'java'
 	id 'war'
-	id 'org.springframework.boot' version '2.5.8'
+	id 'org.springframework.boot' version '2.7.15'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
 
@@ -32,6 +32,13 @@ dependencies {
 	//swagger2.9.2
 	implementation 'io.springfox:springfox-swagger-ui:2.9.2'
 	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+
+	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+	// runtimeOnly('mysql:mysql-connector-java')
+	runtimeOnly 'com.mysql:mysql-connector-j' 
+	//import org.apache.ibatis.annotations.Mapper; dao에서 @Mapper 라이브러리
+	implementation('org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4')
+
 
 }
 
