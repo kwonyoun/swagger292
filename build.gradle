@@ -29,17 +29,18 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	
 	//swagger2.9.2
 	implementation 'io.springfox:springfox-swagger-ui:2.9.2'
 	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
 
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
 	runtimeOnly 'com.mysql:mysql-connector-j' 
-	
-	//import org.apache.ibatis.annotations.Mapper; dao에서 @Mapper 라이브러리
+
+	//@Mapper
 	implementation('org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4')
 
-	//<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	//jstl
 	implementation 'javax.servlet:jstl'
 
 }

@@ -16,9 +16,9 @@ public class BoardVo {
 	String qnaOpen;
 	String qnaMemId;
 
-	// @Override
-	// public String toString() {
-	// 	return "BoardVo{" + "qnaNum=" + qnaNum +", qnaFil=" + qnaFil+", qnaTitle=" + qnaTitle +	", qnaCon=" + qnaCon + 
-	// 			", qnaImg=" + qnaImg + 	", qnaDate=" + qnaDate + ", qnaReply=" + qnaReply+ ", qnaOpen="+qnaOpen+", qnaMemId="+qnaMemId+	"}";
-	// }
+	@Override
+	public String toString() {
+		return "BoardVo{" + "qnaNum=" + qnaNum +", qnaFil=" + qnaFil+", qnaTitle=" + qnaTitle +	", qnaCon=" + qnaCon + 
+				", qnaImg=" + qnaImg + 	", qnaDate=" + qnaDate + ", qnaReply=" + qnaReply+ ", qnaOpen="+qnaOpen+", qnaMemId="+qnaMemId+	"}";
+	}
 }

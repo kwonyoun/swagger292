@@ -7,13 +7,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Board</title>
     <link rel="stylesheet" href="/css/board.css">
 </head>
 <body>
 
     <div class="container">
-        <h1>Responsive Table</h1>
+        <h1>Board Table</h1>
           <table class="rwd-table">
             <tbody>
               <tr>
