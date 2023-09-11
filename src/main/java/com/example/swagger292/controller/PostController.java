@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 // import studio.thinkground.aroundhub.data.dto.MemberDTO;
 
+import com.example.swagger292.dto.MemberDTO;
+
 @RestController
 @RequestMapping("/api/v1/post-api")
 public class PostController {
@@ -35,10 +37,11 @@ public class PostController {
         return sb.toString();
     }
 
-    // http://localhost:8080/api/v1/post-api/member2
-    // @PostMapping(value = "/member2")
-    // public String postMemberDto(@RequestBody MemberDTO memberDTO) {
-    //     return memberDTO.toString();
-    // }
+    //http://localhost:8080/api/v1/post-api/member2
+    @PostMapping(value = "/member2")
+    public String postMemberDto(@RequestBody MemberDTO memberDTO) {
+        System.out.println(memberDTO);
+        return memberDTO.toString();
+    }
 
 }
