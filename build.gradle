@@ -34,13 +34,13 @@ dependencies {
 	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
 
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
-	// runtimeOnly('mysql:mysql-connector-java')
 	runtimeOnly 'com.mysql:mysql-connector-j' 
+	
 	//import org.apache.ibatis.annotations.Mapper; dao에서 @Mapper 라이브러리
 	implementation('org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4')
 
-	implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:2.0.0'
-
+	//<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	implementation 'javax.servlet:jstl'
 
 }
 
