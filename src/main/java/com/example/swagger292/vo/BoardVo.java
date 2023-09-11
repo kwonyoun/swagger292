@@ -2,9 +2,11 @@ package com.example.swagger292.vo;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
+@ToString
 public class BoardVo {
     int qnaNum; 
 	String qnaFil;
@@ -16,9 +18,18 @@ public class BoardVo {
 	String qnaOpen;
 	String qnaMemId;
 
-	@Override
-	public String toString() {
-		return "BoardVo{" + "qnaNum=" + qnaNum +", qnaFil=" + qnaFil+", qnaTitle=" + qnaTitle +	", qnaCon=" + qnaCon + 
-				", qnaImg=" + qnaImg + 	", qnaDate=" + qnaDate + ", qnaReply=" + qnaReply+ ", qnaOpen="+qnaOpen+", qnaMemId="+qnaMemId+	"}";
-	}
+	// @Override
+	// public String toString() {
+	// 	return "BoardVo{" +
+	// 			"qnaNum=" + qnaNum +
+	// 			", qnaFil='" + qnaFil + '\'' +
+	// 			", qnaTitle='" + qnaTitle + '\'' +
+	// 			", qnaCon='" + qnaCon + '\'' +
+	// 			", qnaImg='"+qnaImg+'\''+
+    //             ", qnaDate='"+qnaDate+'\''+
+    //             ", qnaReply='"+qnaReply+'\''+
+    //             ", qnaOpen='"+qnaOpen+'\''+
+    //             ", qnaMemId='"+qnaMemId+'\''+
+	// 		   '}';
+	// }
 }

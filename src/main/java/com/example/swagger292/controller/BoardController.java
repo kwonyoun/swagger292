@@ -32,7 +32,7 @@ public class BoardController {
     public String listtest(Model model){
         ArrayList<BoardVo> vo = boardService.selectList();
         //객체 vo에서 override는 toString은 값을 가져왔는지 테스트하기 위해 만듬.
-        model.addAttribute("list", vo.toString());
+        // model.addAttribute("list", vo);
         return vo.toString();
     }
 
