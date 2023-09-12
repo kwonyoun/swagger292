@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.swagger292.dao.TennisDao">
+
+	<insert id="saveTennis" parameterType="com.example.swagger292.dto.TennisDTO">
+		INSERT INTO facilities VALUES ( default, 
+            #{svcstatnm}, #{usetgtinfo}, #{gubun}, #{rcptenddt}, #{svcopnenddt}, #{svcid}, 
+            #{v_max}, #{v_min}, #{telno}, #{minclassnm}, #{payatnm}, #{svcurl}, 
+            #{revstddaynm}, #{revstdday}, #{placenm}, #{dtlcont}, #{areanm}, 
+            #{rcptbgndt}, #{svcopnbgndt}, #{svcnm}, #{y}, #{imgurl}, #{maxclassnm}, #{x}
+        )
+	</insert>
+</mapper>

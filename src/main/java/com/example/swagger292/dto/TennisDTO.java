@@ -8,8 +8,8 @@ public class TennisDTO {
     String svcstatnm;
     String usetgtinfo;
     String gubun;
-    int rcptenddt ;
-    int svcopnenddt ;
+    String rcptenddt ;
+    String svcopnenddt ;
     String svcid;
     String v_max;
     String v_min;
@@ -22,8 +22,8 @@ public class TennisDTO {
     String placenm;
     String dtlcont;
     String areanm;
-    int rcptbgndt;
-    int svcopnbgndt;
+    String rcptbgndt;
+    String svcopnbgndt;
     String svcnm;
     String y;;
     String imgurl;;
