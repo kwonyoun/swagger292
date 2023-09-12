@@ -42,6 +42,8 @@ dependencies {
 
 	//jstl
 	implementation 'javax.servlet:jstl'
+	//json
+	implementation 'org.json:json:20210307'
 
 }
 
