@@ -24,7 +24,7 @@ public class PostController {
     public String postMember(@RequestBody Map<String, Object> postData) {   //json으로 받게 되는 건가?
         StringBuilder sb = new StringBuilder();
 
-        postData.entrySet().forEach(map -> {
+        postData.entrySet().forEach(map -> { //entrySet() -> map을 전체 출력한다. 
             sb.append(map.getKey() + " : " + map.getValue() + "\n"); //responsebody에 이런 식으로 보내겠다~
         });
         System.out.println(postData);
