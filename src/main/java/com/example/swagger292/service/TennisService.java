@@ -29,8 +29,8 @@ public class TennisService {
     }
 
     //query search
-    public TennisDTO search(@RequestParam String query) {
-        TennisDTO dto = tennisDao.search(query);
+    public ArrayList<TennisDTO> search(@RequestParam String query) {
+        ArrayList<TennisDTO> dto = tennisDao.search(query);
         return dto;
     }
 

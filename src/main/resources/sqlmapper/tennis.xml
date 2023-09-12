@@ -16,4 +16,8 @@
     <select id="selectList" resultType="com.example.swagger292.dto.TennisDTO" >
         SELECT * FROM facilities
     </select>
+
+    <select id="search" parameterType="String" resultType="com.example.swagger292.dto.TennisDTO" >
+        SELECT * FROM facilities WHERE svcstatnm = #{svcstatnm}
+    </select>
 </mapper>

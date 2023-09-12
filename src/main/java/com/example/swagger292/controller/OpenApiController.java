@@ -105,10 +105,21 @@ public class OpenApiController {
 
     //예약시설 search
     @GetMapping("/search")
-    public TennisDTO search(@RequestParam String query) {
-        TennisDTO dto =  tennisvc.search(query);
-        return dto;
+    public ModelAndView search(@RequestParam("query") String query) {
+        ArrayList<TennisDTO> dto =  tennisvc.search(query);
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("tennislist");
+        mav.addObject("vo", dto);
+
+        return mav;
     }
+
+    //예약시설 select one  수정하기!!
+    // @GetMapping("/search")
+    // public TennisDTO searchone(@RequestParam("query") String query) {
+    //     TennisDTO dto =  tennisvc.search(query);
+    //     return dto;
+    // }
 
 
     //예약정보 insert

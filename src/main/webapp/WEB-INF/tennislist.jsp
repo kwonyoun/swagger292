@@ -20,7 +20,8 @@
                      <div class="num">${item.svcstatnm} </div>
                      <div class="title">
                      
-                     
+                     <a href="/open-api/search?query=접수중">검색</a>
+
                      </div>
                      <div class="writer">${item.minclassnm}</div>
                      <div class="writer">${item.svcurl}</div>
