@@ -7,20 +7,27 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.example.swagger292.dao.TennisDao;
 import com.example.swagger292.dto.TennisDTO;
 import com.example.swagger292.service.TennisService;
+import com.example.swagger292.vo.BoardVo;
 import com.mysql.cj.xdevapi.JsonParser;
+
+import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping("open-api")
+@Slf4j
 public class OpenApiController {
 
     // private final OpenApiManager openApiManager;
@@ -81,7 +88,30 @@ public class OpenApiController {
     //     }
     // }
 
+    @GetMapping("/list")
+    public ModelAndView list(){
 
+        ArrayList<TennisDTO> vo = tennisvc.selectList();
+
+        ModelAndView mav = new ModelAndView();
+		
+        mav.setViewName("tennislist");
+        mav.addObject("vo", vo);
+        mav.addObject("test", "test");
+        log.debug("mav: "+mav.toString());
+        // System.out.println(vo.toString());
+        return mav;
+    }
+
+    //예약시설 search
+    @GetMapping("/search")
+    public TennisDTO search(@RequestParam String query) {
+        TennisDTO dto =  tennisvc.search(query);
+        return dto;
+    }
+
+
+    //예약정보 insert
     @GetMapping("/tennis")
     public String tennis(){
 

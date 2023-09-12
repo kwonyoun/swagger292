@@ -1,5 +1,7 @@
 package com.example.swagger292.dao;
 
+import java.util.ArrayList;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.example.swagger292.dto.TennisDTO;
@@ -8,5 +10,7 @@ import com.example.swagger292.dto.TennisDTO;
 public interface TennisDao {
 
     public void saveTennis(TennisDTO dto);
+    public TennisDTO search(String query);
+    public ArrayList<TennisDTO> selectList();
     
 }

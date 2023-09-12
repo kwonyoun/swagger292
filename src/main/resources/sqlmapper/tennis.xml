@@ -12,4 +12,8 @@
             #{rcptbgndt}, #{svcopnbgndt}, #{svcnm}, #{y}, #{imgurl}, #{maxclassnm}, #{x}
         )
 	</insert>
+
+    <select id="selectList" resultType="com.example.swagger292.dto.TennisDTO" >
+        SELECT * FROM facilities
+    </select>
 </mapper>
