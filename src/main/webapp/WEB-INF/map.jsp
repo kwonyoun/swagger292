@@ -46,6 +46,9 @@
 			content: '응봉공원에 오신 것을 환영합니다. <a href="https://map.kakao.com/?urlX=504820.0&urlY=1127062.0&name=%EC%9D%91%EB%B4%89%EA%B3%B5%EC%9B%90" target="_blank">자세히 보기</a>'
 		}
 	];
+	
+	// 클릭 상태를 관리하기 위한 배열
+	var clickStatus = [];
 
 	// 마커 생성 및 클릭 이벤트 등록
 	for (var i = 0; i < markerData.length; i++) {
@@ -55,22 +58,31 @@
 		});
 
 		var infowindow = new kakao.maps.InfoWindow({
-			content: markerData[i].title,
+			content: markerData[i].content,
 			removable: true
 		});
 
-		markers.push(marker);
-		infowindows.push(infowindow);
+		// markers.push(marker); //변수marker에 저장된 객체를 배열markers에 저장한다. 모든 마커를 한 번에 지도에서 제거하거나 모든 마커를 숨기는 작업을 수행할 때 유용합니다.
+		// infowindows.push(infowindow); //변수 infowindow에 저장된 객체를 배열 infowindows에 저장한다. 모든 인포윈도우를 닫는 작업이나 모든 인포윈도우의 내용을 변경하는 작업에 유용합니다.
+		clickStatus.push(false); // 초기 클릭 상태를 모두 false로 설정
 
-		kakao.maps.event.addListener(marker, 'click', makeClickListener(map, marker, infowindow));
+		kakao.maps.event.addListener(marker, 'click', makeClickListener(map, marker, infowindow, i));
+		
 		marker.setMap(map);
 	}
 
 	// 클릭 이벤트 핸들러 생성 함수
-	function makeClickListener(map, marker, infowindow) {
+	function makeClickListener(map, marker, infowindow, index) {
 		return function () {
-			// 해당 마커 위에 인포윈도우를 표시
-			infowindow.open(map, marker);
+			// 클릭 상태에 따라 인포윈도우를 열거나 닫음
+			if (clickStatus[index]) {
+				infowindow.close();
+			} else {
+				infowindow.open(map, marker);
+			}
+			
+			// 클릭 상태를 토글
+			clickStatus[index] = !clickStatus[index];
 		};
 	}
 
