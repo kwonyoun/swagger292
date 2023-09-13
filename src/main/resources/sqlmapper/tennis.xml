@@ -17,7 +17,11 @@
         SELECT * FROM facilities
     </select>
 
-    <select id="search" parameterType="String" resultType="com.example.swagger292.dto.TennisDTO" >
-        SELECT * FROM facilities WHERE svcstatnm = #{svcstatnm}
+    <select id="searchareanm" parameterType="String" resultType="com.example.swagger292.dto.TennisDTO" >
+        SELECT * FROM 
+        facilities
+        <if test="areanm != null and areanm != ''">
+            WHERE areanm LIKE CONCAT('%', #{areanm}, '%')
+        </if>
     </select>
 </mapper>

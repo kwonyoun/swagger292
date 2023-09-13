@@ -10,7 +10,7 @@ import com.example.swagger292.dto.TennisDTO;
 public interface TennisDao {
 
     public void saveTennis(TennisDTO dto);
-    public ArrayList<TennisDTO> search(String query);
+    public ArrayList<TennisDTO> searchareanm(String query);
     public ArrayList<TennisDTO> selectList();
     
 }

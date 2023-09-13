@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -104,9 +106,21 @@ public class OpenApiController {
     }
 
     //예약시설 search
-    @GetMapping("/search")
-    public ModelAndView search(@RequestParam("query") String query) {
-        ArrayList<TennisDTO> dto =  tennisvc.search(query);
+    // @GetMapping("/search")
+    // public ModelAndView search(@RequestParam("query") String query) {
+    //     ArrayList<TennisDTO> dto =  tennisvc.search(query);
+    //     ModelAndView mav = new ModelAndView();
+    //     mav.setViewName("tennislist");
+    //     mav.addObject("vo", dto);
+
+    //     return mav;
+    // }
+
+    //예약시설areanm자치구 search
+    @PostMapping("/search")
+    public ModelAndView searchareanm(@RequestParam("query") String query) {
+        System.out.println(query);
+        ArrayList<TennisDTO> dto =  tennisvc.searchareanm(query);
         ModelAndView mav = new ModelAndView();
         mav.setViewName("tennislist");
         mav.addObject("vo", dto);
