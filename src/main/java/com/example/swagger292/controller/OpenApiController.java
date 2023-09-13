@@ -119,7 +119,7 @@ public class OpenApiController {
     //예약시설areanm자치구 search
     @PostMapping("/search")
     public ModelAndView searchareanm(@RequestParam("query") String query) {
-        System.out.println(query);
+        // System.out.println(query);
         ArrayList<TennisDTO> dto =  tennisvc.searchareanm(query);
         ModelAndView mav = new ModelAndView();
         mav.setViewName("tennislist");
@@ -235,7 +235,7 @@ public class OpenApiController {
                 dto.setImgurl(imgurl);
                 dto.setMaxclassnm(maxclassnm);
                 dto.setX(x);
-                tennisvc.saveTennis(dto);
+                // tennisvc.saveTennis(dto);
 
             }
 
