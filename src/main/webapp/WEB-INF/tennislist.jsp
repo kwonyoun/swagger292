@@ -42,7 +42,7 @@
     <!-- <a href="/open-api/search?query=접수중">검색</a> -->
     <form action="/open-api/search" method="post" >
         <div class="search">
-            <input type="text" name="query" placeholder="검색어 입력" >
+            <input type="text" name="query" placeholder="검색어 입력" value="${query}" >
             <input type="submit" value="검색">
         </div>
     </form>

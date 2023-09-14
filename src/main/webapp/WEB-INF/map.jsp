@@ -41,9 +41,9 @@
 		success: function(markerData) {
 			// 성공적으로 데이터를 받았을 때 실행되는 함수
 			// markerData = data; // 서버에서 받아온 데이터를 사용
-			alert(markerData[0].placenm);
-			alert(markerData[0].x);
-			alert(markerData[0].y);
+			// alert(markerData[0].placenm);
+			// alert(markerData[0].x);
+			// alert(markerData[0].y);
 
 			// 클릭 상태를 관리하기 위한 배열
 	var clickStatus = [];
@@ -56,7 +56,7 @@ for (var i = 0; i < markerData.length; i++) {
 	});
 
 	var infowindow = new kakao.maps.InfoWindow({
-		content: '<div style="padding:10px;"><p>'+markerData[i].placenm+'</p></div>',
+		content: '<div style="padding:5px;">'+markerData[i].placenm+'<br><a href="/open-api/place?urlX='+markerData[i].x+'&urlY='+markerData[i].y+'">장소 예약현황</a></div>',
 		removable: true
 	});
 
