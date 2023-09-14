@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div id="map" style="width: 1000px; height: 700px;"></div> 
+    <div id="map" style="width: 1600px; height: 850px;"></div> 
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=98492dd7f33496409be5e616fd471e95"></script>
 	<!-- services와 clusterer, drawing 라이브러리 불러오기 -->
 <!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=98492dd7f33496409be5e616fd471e95&libraries=clusterer,drawing"></script> -->
@@ -38,15 +38,15 @@
 		{
 			title: '보라매공원>테니스장',
 			latlng: new kakao.maps.LatLng(37.49101, 126.91605),
-			content: '보라매공원 테니스장입니다.'
+			content: '보라매공원 테니스장입니다. <a href="/open-api/place?urlX=37.49101&urlY=126.91605" target="_blank">장소 예약현황</a> '
 		},
 		{
 			title: '응봉공원',
 			latlng: new kakao.maps.LatLng(37.5569473910838, 127.02182026085195),
-			content: '응봉공원에 오신 것을 환영합니다. <a href="https://map.kakao.com/?urlX=504820.0&urlY=1127062.0&name=%EC%9D%91%EB%B4%89%EA%B3%B5%EC%9B%90" target="_blank">자세히 보기</a>'
+			content: '응봉공원에 오신 것을 환영합니다. <a href="/open-api/place?urlX=37.5569473910838&urlY=127.02182026085195" target="_blank">장소 예약현황</a>'
 		}
 	];
-	
+
 	// 클릭 상태를 관리하기 위한 배열
 	var clickStatus = [];
 
@@ -58,7 +58,7 @@
 		});
 
 		var infowindow = new kakao.maps.InfoWindow({
-			content: markerData[i].content,
+			content: '<div style="padding:10px;"><p>'+markerData[i].content+'</p></div>',
 			removable: true
 		});
 

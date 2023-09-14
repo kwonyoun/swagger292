@@ -13,10 +13,6 @@
         )
 	</insert>
 
-    <select id="selectList" resultType="com.example.swagger292.dto.TennisDTO" >
-        SELECT * FROM facilities
-    </select>
-
     <select id="searchareanm" parameterType="String" resultType="com.example.swagger292.dto.TennisDTO" >
         SELECT * FROM 
         facilities
@@ -24,4 +20,13 @@
             WHERE areanm LIKE CONCAT('%', #{areanm}, '%')
         </if>
     </select>
+    
+    <select id="selectList" resultType="com.example.swagger292.dto.TennisDTO" >
+        SELECT * FROM facilities
+    </select>
+
+    <select id="mapMarkerList" resultType="com.example.swagger292.dto.TennisDTO" >
+        SELECT * FROM facilities WHERE y = #{y} AND x = #{x}
+    </select>
+
 </mapper>

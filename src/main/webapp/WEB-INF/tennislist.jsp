@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Board</title>
-    <link rel="stylesheet" href="/css/board.css">
+    <link rel="stylesheet" href="/css/tennis.css">
     <style>
         .search {
         position: relative;
@@ -27,14 +27,14 @@
 
         input[type="submit"]  {
         position : absolute;
-        width: 17px;
+        width: 50px;
         top: 10px;
-        right: 12px;
+        right: 0;
         margin: 0;
         }
     </style>
 </head>
-<body>ㄴ
+<body>
 
     <div class="container">
         <h1>서울특별시 체육시설 테니스장 예약정보</h1>

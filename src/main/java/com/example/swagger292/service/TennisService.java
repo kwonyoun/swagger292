@@ -1,6 +1,7 @@
 package com.example.swagger292.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,6 +26,12 @@ public class TennisService {
     //예약정보 selectList
     public ArrayList<TennisDTO> selectList(){
         ArrayList<TennisDTO> list = tennisDao.selectList();
+        return list;
+    }
+
+    //지도에서 마커클릭 후 예약정보확인 selectList
+    public ArrayList<TennisDTO> mapMarkerList(HashMap map){
+        ArrayList<TennisDTO> list = tennisDao.mapMarkerList(map);
         return list;
     }
 
