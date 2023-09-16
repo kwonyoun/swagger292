@@ -30,5 +30,12 @@ public class KakaoMapApiController {
         ArrayList<TennisDTO> vo = tennisvc.selectList();
         return vo;
     }
+
+    @GetMapping("/reservation")
+    @ResponseBody
+    public ArrayList<TennisDTO> reservation() {
+        ArrayList<TennisDTO> vo = tennisvc.selectList();
+        return vo;
+    }
     
 }
