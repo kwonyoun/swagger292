@@ -29,4 +29,8 @@
         SELECT * FROM facilities WHERE y = #{y} AND x = #{x}
     </select>
 
+    <select id="selectTennisView" resultType="com.example.swagger292.dto.TennisDTO" >
+        SELECT * FROM facilities WHERE svcid = #{svcid}
+    </select>
+
 </mapper>

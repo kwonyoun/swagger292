@@ -106,6 +106,8 @@ public class OpenApiController {
         return mav;
     }
 
+
+    //infowindow 클릭시 나오는 a태그 경로
     @GetMapping("/place")
     public ModelAndView placelist(@RequestParam("urlX") String urlX, @RequestParam("urlY") String urlY){
 
@@ -171,7 +173,7 @@ public class OpenApiController {
             urlBuilder.append("/" +  URLEncoder.encode("json","UTF-8") ); /*요청파일타입 (xml,xmlf,xls,json) */
             urlBuilder.append("/" + URLEncoder.encode("ListPublicReservationSport","UTF-8")); /*서비스명 (대소문자 구분 필수입니다.)*/
             urlBuilder.append("/" + URLEncoder.encode("1","UTF-8")); /*요청시작위치 (sample인증키 사용시 5이내 숫자)*/
-            urlBuilder.append("/" + URLEncoder.encode("10","UTF-8")); /*요청종료위치(sample인증키 사용시 5이상 숫자 선택 안 됨)*/
+            urlBuilder.append("/" + URLEncoder.encode("100","UTF-8")); /*요청종료위치(sample인증키 사용시 5이상 숫자 선택 안 됨)*/
             // 상위 5개는 필수적으로 순서바꾸지 않고 호출해야 합니다.
             
             // 서비스별 추가 요청 인자이며 자세한 내용은 각 서비스별 '요청인자'부분에 자세히 나와 있습니다.
@@ -256,7 +258,7 @@ public class OpenApiController {
                 dto.setImgurl(imgurl);
                 dto.setMaxclassnm(maxclassnm);
                 dto.setX(x);
-                tennisvc.saveTennis(dto);
+                // tennisvc.saveTennis(dto);
 
             }
 

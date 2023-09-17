@@ -14,5 +14,6 @@ public interface TennisDao {
     public ArrayList<TennisDTO> searchareanm(String query);
     public ArrayList<TennisDTO> selectList();
     public ArrayList<TennisDTO> mapMarkerList(HashMap map);
+    public TennisDTO selectTennisView(String svcid);
     
 }

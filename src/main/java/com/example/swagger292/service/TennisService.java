@@ -41,5 +41,11 @@ public class TennisService {
         return dto;
     }
 
+    //예약정보 selectList
+    public TennisDTO selectTennisView(String svcid){
+        TennisDTO list = tennisDao.selectTennisView(svcid);
+        return list;
+    }
+
     
 }
