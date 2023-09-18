@@ -11,6 +11,7 @@
 <div id="container" style="width: 1080px; margin: 0 auto; background-color: white;" >
 <a href="/login">로그인</a>
 <a href="/register">회원가입</a>
+<a href="/open-api/list">목록</a>
 
 </div>
     

@@ -62,7 +62,7 @@
                         ${item.telno}
                     </td>
                     <td data-th="Supplier Name">
-                        <!-- <a href="${item.svcurl}">예약 바로가기</a> -->
+                        <!-- <a href="${item.svcurl}">예약url 바로가기</a> -->
                         <a href="/detailView?svcid=${item.svcid}">예약 바로가기</a>
                     </td>
                     <td data-th="Invoice Number">

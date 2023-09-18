@@ -20,7 +20,8 @@
             <li>예약현황 : ${vo.svcstatnm}</li>
         </ul>
         <ul>
-            <li><a href="/reservation?svc=${vo.svcid}"></li>
+            <li><a href="/reservation?svcid=${vo.svcid}">예약하기</a></li>
+            <li><a href="/open-api/list">목록</a></li>
         </ul>
     </table>
     <div style="width: 1080px;" ><div id="map" style="width: 800px; height: 500px; margin: 0 auto; "></div></div> 
