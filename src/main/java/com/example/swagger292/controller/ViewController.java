@@ -12,5 +12,17 @@ public class ViewController {
         ModelAndView mav = new ModelAndView("index");
         return mav;
     }
+
+    @GetMapping("/login")
+    public ModelAndView login(){
+        ModelAndView mav = new ModelAndView("login");
+        return mav;
+    }
+
+    @GetMapping("/signup")
+    public ModelAndView signup(){
+        ModelAndView mav = new ModelAndView("signup");
+        return mav;
+    }
     
 }
