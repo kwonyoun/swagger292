@@ -10,9 +10,10 @@
 <header>
 <div id="container" style="width: 1080px; margin: 0 auto; background-color: white;" >
 <a href="/login">로그인</a>
+<a href="/logout">logout</a>
 <a href="/signup">회원가입</a>
 <a href="/open-api/list">목록</a>
-
+${pageContext.request.userPrincipal.name}
 </div>
     
 </header>

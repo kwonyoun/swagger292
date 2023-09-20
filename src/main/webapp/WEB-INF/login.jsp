@@ -167,12 +167,12 @@ a{color:inherit;text-decoration:none}
             <form action="/loginProc" method="post">
                 <div class="sign-in-htm">
                 <div class="group">
-                    <label for="user" class="label">Username</label>
-                    <input id="user" name="userId" type="text" class="input">
+                    <label for="userid" class="label">Username</label>
+                    <input id="userid" name="userid" type="text" class="input">
                 </div>
                 <div class="group">
-                    <label for="pass" class="label">Password</label>
-                    <input id="pass" name="userPw" type="password" class="input" data-type="password">
+                    <label for="userpw" class="label">Password</label>
+                    <input id="userpw" name="userpw" type="password" class="input" data-type="password">
                 </div>
                 <div class="group"> 
                     <input id="check" type="checkbox" class="check" checked>

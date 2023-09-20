@@ -22,7 +22,7 @@ public class UserService {
 
     //회원가입
     public void signup(Userinfo userVo) { // 회원 가입
-        
+
 		    // password는 암호화해서 DB에 저장           
             userVo.setUserpw(passwordEncoder.encode(userVo.getUserpw()));
             userVo.setRoles("USER");
@@ -30,14 +30,16 @@ public class UserService {
             dao.insertUser(userVo);
     }
 
+    //로그인 
+    public Userinfo getUserById(String id) {
+        return dao.getUserById(id);
+    }
+
     // public List<Userinfo> getUserList() {
     //     return userMapper.getUserList();
     // }
 
-    //로그인 
-    // public Userinfo getUserById(String id) {
-    //     return userMapper.getUserById(id);
-    // }
+    
 
     // public Userinfo getUserByEmail(String email) {
     //     return userMapper.getUserByEmail(email);
