@@ -203,7 +203,7 @@ a{color:inherit;text-decoration:none}
                         } else {
                             alert("회원가입 실패")
                         }
-                    })
+                    })  
                     .catch(error => console.log(error))
                 });
             </script>

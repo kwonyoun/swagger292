@@ -27,14 +27,12 @@ public class SignupController {
 
     @PostMapping( value = "/process")
     public ResponseEntity<String> join(@RequestBody Userinfo vo) {
-        System.out.println("access");
-
         try {
-            System.out.println("authoController: "+vo); //받아왔는지 확인
+            System.out.println("SignupController: "+vo); //받아왔는지 확인
             //가입 insert
             usersvc.signup(vo); 
 
-            return ResponseEntity.ok("join success");
+            return ResponseEntity.ok("join success"); //스웨거에서 확인 시 이 문구가 나온다. 
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
