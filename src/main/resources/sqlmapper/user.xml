@@ -13,7 +13,7 @@
 	</insert>
 
 	<!-- 회원가입 -->
-    <insert id="insertUser">
+    <insert id="insertUser" parameterType="com.example.swagger292.vo.Userinfo" >
         insert into userinfo values (default, #{userid}, #{userpw}, #{username}, #{roles})
     </insert>
 

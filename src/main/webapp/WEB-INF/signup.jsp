@@ -160,56 +160,45 @@ a{color:inherit;text-decoration:none}
 </style>
 <body>
     <div class="login-wrap">
-        <div class="login-html">
-          <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
-          <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
-          <div class="login-form">
-            <form action="/signup" method="post" id='join_form'>
-                <div class="sign-up-htm">
+            <form id='join_form'>
                     <div class="group">
-                        <label for="user" class="label">Username</label>
-                        <input name="userid" type="text" class="input">
+                        <label for="userid" class="label">ID</label>
+                        <input id="userid" name="userid" type="text" class="input">
                     </div>
                     <div class="group">
-                        <label for="pass" class="label">Password</label>
-                        <input name="userpw" type="password" class="input" data-type="password">
+                        <label for="userpw" class="label">Password</label>
+                        <input id="userpw" name="userpw" type="password" class="input" data-type="password">
                     </div>
                     <div class="group">
-                        <label for="pass" class="label">Repeat Password</label>
                         <input type="password" class="input" data-type="password">
                     </div>
                     <div class="group">
-                        <label for="pass" class="label">Name</label>
-                        <input name="name" type="text" class="input">
+                        <label for="username" class="label">Name</label>
+                        <input id="username" name="username" type="text" class="input">
                     </div>
                     <div class="group">
                       <button type="submit">회원가입</button>
                     </div>
-                    <div class="hr"></div>
-                    <div class="foot-lnk">
-                        <label for="tab-1">Already Member?</a>
-                    </div>
-                </div>
             </form>
-            <!-- <script>
+            <script>
                 const form = document.getElementById('join_form');
+	
                 form.addEventListener('submit', e => {
-                    e.preventDefault();
-        
-                    const data = new FormData(form);
-                    const param = JSON.stringify(Object.fromEntries(data));
-                    alert(param);
-                    fetch('/auth/join', {
-                        method: 'POST',
-                        body: param,
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    })
+                  e.preventDefault();
+
+                  const data = new FormData(form);
+                  const param = JSON.stringify(Object.fromEntries(data));
+                  fetch('/signup/process', {
+                    method: 'POST',
+                    body: param,
+                    headers: {
+                      'Content-Type': 'application/json'
+                    }
+                  })
                     .then(response => {
                         debugger;
                         if (response.status == 200) {
-                            window.location.href = '/login';
+                            window.location.href = '/';
                             alert("회원가입 성공")
                         } else {
                             alert("회원가입 실패")
@@ -217,10 +206,7 @@ a{color:inherit;text-decoration:none}
                     })
                     .catch(error => console.log(error))
                 });
-            </script> -->
-            
-          </div>
-        </div>
+            </script>
       </div>
 </body>
 </html>

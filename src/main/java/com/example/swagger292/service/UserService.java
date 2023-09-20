@@ -13,28 +13,37 @@ import com.example.swagger292.vo.Userinfo;
 @Service
 public class UserService {
 
-    @Autowired
-    private UserDao userMapper;
+    private final UserDao dao;
+    private final PasswordEncoder passwordEncoder;
+    public UserService(PasswordEncoder passwordEncoder, UserDao dao) {
+        this.passwordEncoder = passwordEncoder;
+        this.dao = dao;
+    }
 
-    private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    //회원가입
+    public void signup(Userinfo userVo) { // 회원 가입
+        
+		    // password는 암호화해서 DB에 저장           
+            userVo.setUserpw(passwordEncoder.encode(userVo.getUserpw()));
+            userVo.setRoles("USER");
+            System.out.println("svc: "+userVo);
+            dao.insertUser(userVo);
+    }
 
     // public List<Userinfo> getUserList() {
     //     return userMapper.getUserList();
     // }
 
-    public Userinfo getUserById(String id) {
-        return userMapper.getUserById(id);
-    }
+    //로그인 
+    // public Userinfo getUserById(String id) {
+    //     return userMapper.getUserById(id);
+    // }
 
     // public Userinfo getUserByEmail(String email) {
     //     return userMapper.getUserByEmail(email);
     // }
 
-    public void signup(Userinfo userVo) { // 회원 가입
-		    // password는 암호화해서 DB에 저장           
-            userVo.setUserpw(passwordEncoder.encode(userVo.getUserpw()));
-            userMapper.insertUser(userVo);
-    }
+    
 
     // public void edit(Userinfo userVo) { // 회원 정보 수정
  	// 	// password는 암호화해서 DB에 저장      
@@ -46,7 +55,5 @@ public class UserService {
     //     userMapper.deleteUser(id);
     // }
 
-    public PasswordEncoder passwordEncoder() {
-        return this.passwordEncoder;
-    }
+    
 }
