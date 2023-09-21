@@ -41,7 +41,7 @@ a{color:inherit;text-decoration:none}
   right:0;
   bottom:0;
   position:absolute;
-  transform:rotateY(180deg);
+  /* transform:rotateY(180deg);/// */
   backface-visibility:hidden;
   transition:all .4s linear;
 }
@@ -139,9 +139,9 @@ a{color:inherit;text-decoration:none}
 .login-form .group .check:checked + label .icon:before{
   transform:scale(1) rotate(45deg);
 }
-.login-form .group .check:checked + label .icon:after{
+/* .login-form .group .check:checked + label .icon:after{
   transform:scale(1) rotate(-45deg);
-}
+} */
 .login-html .sign-in:checked + .tab + .sign-up + .tab + .login-form .sign-in-htm{
   transform:rotate(0);
 }
@@ -160,7 +160,12 @@ a{color:inherit;text-decoration:none}
 </style>
 <body>
     <div class="login-wrap">
+      <div class="login-html">
+        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign Up</label>
+          <!-- <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label> -->
+        <div class="login-form">
             <form id='join_form'>
+              <div class="sign-in-htm">
                     <div class="group">
                         <label for="userid" class="label">ID</label>
                         <input id="userid" name="userid" type="text" class="input">
@@ -179,34 +184,38 @@ a{color:inherit;text-decoration:none}
                     <div class="group">
                       <button type="submit">회원가입</button>
                     </div>
+                  </div>
             </form>
-            <script>
-                const form = document.getElementById('join_form');
-	
-                form.addEventListener('submit', e => {
-                  e.preventDefault();
-
-                  const data = new FormData(form);
-                  const param = JSON.stringify(Object.fromEntries(data));
-                  fetch('/signup/process', {
-                    method: 'POST',
-                    body: param,
-                    headers: {
-                      'Content-Type': 'application/json'
-                    }
-                  })
-                    .then(response => {
-                        debugger;
-                        if (response.status == 200) {
-                            window.location.href = '/';
-                            alert("회원가입 성공")
-                        } else {
-                            alert("회원가입 실패")
-                        }
-                    })  
-                    .catch(error => console.log(error))
-                });
-            </script>
+          </div>
       </div>
+      <script>
+          const form = document.getElementById('join_form');
+
+          form.addEventListener('submit', e => {
+            e.preventDefault();
+
+            const data = new FormData(form);
+            const param = JSON.stringify(Object.fromEntries(data));
+            fetch('/signup/process', {
+              method: 'POST',
+              body: param,
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            })
+              .then(response => {
+                  debugger;
+                  if (response.status == 200) {
+                      window.location.href = '/';
+                      alert("회원가입 성공")
+                  } else {
+                      alert("회원가입 실패")
+                  }
+              })  
+              .catch(error => console.log(error))
+          });
+      </script>
+      
+    </div>
 </body>
 </html>
