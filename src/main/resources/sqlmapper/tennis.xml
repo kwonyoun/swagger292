@@ -33,4 +33,9 @@
         SELECT * FROM facilities WHERE svcid = #{svcid}
     </select>
 
+    <!-- 탑테니스 지점 정보 -->
+    <select id="selectBranchList" resultType="com.example.swagger292.dto.TopBranchDTO" >
+        SELECT * FROM toptennis
+    </select>
+
 </mapper>

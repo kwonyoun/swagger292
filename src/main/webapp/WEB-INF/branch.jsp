@@ -1,17 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>카카오지도 api study</title>
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <body>
-
-	<div id="map-wrap" style="width: 1080px; margin: 0 auto; " >
+    <div id="map-wrap" style="width: 1080px; margin: 0 auto; " >
     	<div id="map" style="width: 800px; height: 500px; margin: 0 auto;"></div> 
 	</div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=98492dd7f33496409be5e616fd471e95"></script>
@@ -34,7 +32,7 @@
 
 	// Ajax를 사용하여 서버에서 데이터를 받아옴
 	$.ajax({
-		url: '/map/data', // 컨트롤러 메서드의 URL
+		url: '/map/branch', // 컨트롤러 메서드의 URL
 		type: 'GET',
 		dataType: 'json', // 서버에서 받아온 데이터를 JSON으로 처리
 		success: function(markerData) {
@@ -55,7 +53,7 @@ for (var i = 0; i < markerData.length; i++) {
 	});
 
 	var infowindow = new kakao.maps.InfoWindow({
-		content: '<div style="padding:5px;">'+markerData[i].placenm+'<br><a href="/open-api/place?urlX='+markerData[i].x+'&urlY='+markerData[i].y+'">장소 예약현황</a></div>',
+		content: '<div style="padding:5px;">'+markerData[i].branch+'<br>'+markerData[i].address+'</div>',
 		removable: true
 	});
 

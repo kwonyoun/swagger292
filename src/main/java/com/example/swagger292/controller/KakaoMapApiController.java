@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.swagger292.dto.TennisDTO;
+import com.example.swagger292.dto.TopBranchDTO;
 import com.example.swagger292.service.TennisService;
 
 import lombok.experimental.var;
@@ -50,6 +51,13 @@ public class KakaoMapApiController {
         TennisDTO vo = tennisvc.selectTennisView(svcid);
         mav.addObject("vo", vo);
         return mav;
+    }
+
+    @GetMapping("/map/branch")
+    @ResponseBody // JSON 응답을 생성하도록 설정
+    public ArrayList<TopBranchDTO> mapBranch() {
+        ArrayList<TopBranchDTO> vo = tennisvc.selectBranchList();
+        return vo;
     }
     
 }

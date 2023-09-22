@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.swagger292.dao.TennisDao;
 import com.example.swagger292.dto.TennisDTO;
+import com.example.swagger292.dto.TopBranchDTO;
 
 @Service
 public class TennisService {
@@ -44,6 +45,12 @@ public class TennisService {
     //예약정보 selectList
     public TennisDTO selectTennisView(String svcid){
         TennisDTO list = tennisDao.selectTennisView(svcid);
+        return list;
+    }
+
+    //예약정보 selectList
+    public ArrayList<TopBranchDTO> selectBranchList(){
+        ArrayList<TopBranchDTO> list = tennisDao.selectBranchList();
         return list;
     }
 

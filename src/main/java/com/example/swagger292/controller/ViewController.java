@@ -24,5 +24,23 @@ public class ViewController {
         ModelAndView mav = new ModelAndView("signup");
         return mav;
     }
+
+    @GetMapping("/branch")
+    public ModelAndView branch(){
+        ModelAndView mav = new ModelAndView("branch");
+        return mav;
+    }
+
+    @GetMapping("/photo")
+    public ModelAndView photo(){
+        ModelAndView mav = new ModelAndView("photo");
+        return mav;
+    }
+
+    @GetMapping("/community")
+    public ModelAndView community(){
+        ModelAndView mav = new ModelAndView("community");
+        return mav;
+    }
     
 }

@@ -6,6 +6,7 @@ import java.util.HashMap;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.example.swagger292.dto.TennisDTO;
+import com.example.swagger292.dto.TopBranchDTO;
 
 @Mapper
 public interface TennisDao {
@@ -15,5 +16,7 @@ public interface TennisDao {
     public ArrayList<TennisDTO> selectList();
     public ArrayList<TennisDTO> mapMarkerList(HashMap map);
     public TennisDTO selectTennisView(String svcid);
+
+    public ArrayList<TopBranchDTO> selectBranchList();
     
 }
