@@ -6,6 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    photo
+    <div>
+        <img src="/imgs/lock.png">
+    </div>
 </body>
 </html>

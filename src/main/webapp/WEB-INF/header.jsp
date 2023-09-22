@@ -24,7 +24,7 @@
                     </ul> -->
                 </li>
                 <li>
-                    <a href="https://innate-leopon-786.notion.site/9b15f97de73d4fc0995ecff349145675?pvs=4" class="">코치소개</a>
+                    <a href="https://innate-leopon-786.notion.site/9b15f97de73d4fc0995ecff349145675?pvs=4" class="">notion</a>
                 </li>
                 <li>
                     <a href="/branch" class="">각 지점 소개</a>

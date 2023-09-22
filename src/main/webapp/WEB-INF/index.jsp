@@ -8,7 +8,9 @@
     <title>Document</title>
 </head>
 <jsp:include page="header.jsp"/>
-<body>
-    index
+<body style="margin: 0;" >
+    <div style="padding-top: 150px;" >
+        <div style="background-image: url('imgs/index-bn.png'); width: 100%; height: 400px; background-position: 50% 50%;" ></div>
+    </div>
 </body>
 </html>
