@@ -7,10 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div id="map-wrap" style="width: 1080px; margin: 0 auto; " >
-    	<div id="map" style="width: 800px; height: 500px; margin: 0 auto;"></div> 
+<jsp:include page="header.jsp"/>
+<body style="font-family: Noto Sans KR,sans-serif;" >
+    
+    <div style="width: 1080px; margin: 100px auto 20px auto" >
+        <div style="width: 750px;margin: 0 auto;">
+			<!-- <img src="/imgs/branch-bn.jpg" style="width: 800px; height: 200px ;" > -->
+			<div style="background-image: url('imgs/branch-bn.jpg'); width: 750px; height: 150px;" >
+				<div style="background-color: rgba(120, 121, 120, 0.89); width: 100%;height: 100%;" >
+					<div style="font-size: 2em;line-height: 6;text-align: end;padding-right: 50px;color: white;" >Top Tennis 지점 소개</div>
+				</div>
+			</div>
+		</div>
+    </div>
+    <div id="map-wrap" style="width: 1500px; margin: 0 auto; " >
+    	<div id="map" style="width: 1500px; height: 600px; margin: 0 auto;"></div> 
 	</div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=98492dd7f33496409be5e616fd471e95"></script>
 	<script type="text/javascript">
@@ -18,7 +33,7 @@
 	var mapContainer = document.getElementById('map');
 	var mapOption = {
 		center: new kakao.maps.LatLng(37.658042, 127.044202),
-		level: 3
+		level: 10
 	};
 
 	var map = new kakao.maps.Map(mapContainer, mapOption);
