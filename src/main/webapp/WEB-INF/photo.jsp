@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    <jsp:include page="header.jsp"/>
     <div>
         <img src="/imgs/lock.png">
     </div>

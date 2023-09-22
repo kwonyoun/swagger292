@@ -10,7 +10,7 @@
 </head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <body>
-
+	<jsp:include page="header.jsp"/>
 	<div id="map-wrap" style="width: 1080px; margin: 0 auto; " >
     	<div id="map" style="width: 800px; height: 500px; margin: 0 auto;"></div> 
 	</div>

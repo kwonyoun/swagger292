@@ -18,21 +18,12 @@
             <ul class="gnb">
                 <li>
                     <a href="/map" class="">서울 테니스장</a>
-                    <!-- <ul class="sub_menu">
-                        <li><a href="../sub/sub01_01.html">포시즌 테니스</a></li>
-                        <li><a href="../sub/sub01_02.html">오시는 길</a></li>
-                    </ul> -->
                 </li>
                 <li>
                     <a href="https://innate-leopon-786.notion.site/9b15f97de73d4fc0995ecff349145675?pvs=4" class="">notion</a>
                 </li>
                 <li>
                     <a href="/branch" class="">각 지점 소개</a>
-                    <ul class="sub_menu" style="display: none; height: 107.667px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
-                        <li><a href="../sub/sub03_01.html">레슨 프로그램</a></li>
-                        <li><a href="../sub/sub07_02.html?ptype=view&amp;idx=5676&amp;page=1&amp;code=event">레슨비 안내</a></li>
-                        <li><a href="../sub/sub03_02.html">중요공지</a></li>
-                    </ul>
                 </li>
                 <!-- <li>
                     <a href="../sub/sub04_01.html" class="">스크린테니스</a>
@@ -46,14 +37,10 @@
                     <a href="/photo" class="">포토갤러리</a>
                 </li>
                 <li>
-                    <a href="../sub/sub05_01.html" class="">시설안내</a>
+                    <a href="/info" class="">시설안내</a>
                 </li>
                 <li>
                     <a href="/community" class="">커뮤니티</a>
-                    <ul class="sub_menu" style="display: none; height: 72.6667px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
-                        <li><a href="../sub/sub07_01.html">공지사항</a></li>
-                        <li><a href="../sub/sub07_02.html">이벤트</a></li>
-                    </ul>
                 </li>
             </ul>
             <div class="top_member">
