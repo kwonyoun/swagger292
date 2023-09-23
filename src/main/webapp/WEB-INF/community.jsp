@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +25,7 @@
                 <span>총게시물 ${totCnt} / 페이지 (${pagination.currentPageNo} / ${totalPageCnt})</span>
      
                 <div class="bt_wrap" style="float: right; margin-right: 30px;" >
-                 <a href="/cscenter/qna/write" class="on" >등록</a>
+                 <a href="/community/write" class="on" >등록</a>
              </div>
              </div>
              
@@ -43,19 +44,15 @@
      
                        <!-- foreach 문으로 컬렉션 반복 처리 -->
                        <c:forEach var="item" items="${boardList}">
-                          <div class="num">${item.qnaNum} </div>
+                          <div class="num">${item.idno} </div>
                           <div class="title">
-                             <a href="/cscenter/qna/view?qnaNum=${item.qnaNum}">${item.qnaTitle}
-                                <c:if test="${item.qnaOpen eq 'private'}">
-                                <img src="/imgs/lock.png" alt="fail" style="width: 12px; height: 12px;" >
-                                </c:if>
-                             </a>
+                             <a href="/community/view?idno=${item.idno}">${item.idno}</a>
                           
                           
                           </div>
-                          <div class="writer">${item.qnaMemId}</div>
-                          <div class="writer">${item.qnaOpen}</div>
-                          <div class="date">${item.qnaDate}</div>
+                          <div class="writer">${item.userid}</div>
+                          <div class="writer">${item.view}</div>
+                          <div class="date">${item.date}</div>
                        </c:forEach>
      
                     </div>
@@ -96,7 +93,7 @@
            </style>
      
                  <!-- Paging[e] -->
-                 <form method="get"  id="listForm" action="/cscenter/qnalist/page"  >
+                 <form method="get"  id="listForm" action="/community/page"  >
                     <input type="hidden" id="pageIndex" name="pageIndex" val="" />
                  </form>
                  <script>

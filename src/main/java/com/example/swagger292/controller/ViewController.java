@@ -71,7 +71,6 @@ public class ViewController {
         pageVO.setFirstIndex(pagination.getFirstRecordIndex()); //
         pageVO.setRecordCountPerPage(pagination.getRecordCountPerPage());
 
-        // ArrayList<CommunityVo> vo = commsvc.selectCommunity(pageVO);
         List<CommunityVo> boardList = commsvc.getList(pageVO); //게시판을 데이터베이스에서 select하여 저장함.
         int totCnt = commsvc.getListCnt(pageVO); //페이징을 위해 게시글 수를 select하여 저장함.
 
@@ -91,7 +90,7 @@ public class ViewController {
         mav.addObject("totCnt",totCnt);
         mav.addObject("totalPageCnt",(int)Math.ceil(totCnt / (double)pageVO.getPageUnit()));
         mav.addObject("pagination",pagination);
-        
+
         return mav;
     }
     

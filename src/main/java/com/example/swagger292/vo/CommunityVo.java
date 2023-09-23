@@ -4,11 +4,11 @@ import lombok.Data;
 
 @Data
 public class CommunityVo {
-
+    int idno;
     String title;
     String content;
     String date;
     String userid;
-    String view;
+    int view;
     
 }
