@@ -1,0 +1,23 @@
+.contents{
+  width: 1080px;
+  margin: 120px auto 0 auto;
+}
+
+.AW_bbs_table {
+  border-top: 1px solid #999;
+  border-collapse: collapse;
+}
+
+.AW_bbs_table tr {
+  border-bottom: 1px solid #ddd;
+}
+
+.AW_bbs_table th, .AW_bbs_table td {
+  /* font-size: 15px; */
+  /* font-weight: 500; */
+  line-height: 31px;
+  letter-spacing: -0.045rem;
+  color: #333;
+  padding: 12px 0;
+  vertical-align: middle;
+}
