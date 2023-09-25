@@ -13,7 +13,7 @@
     <!-- community -->
     <div class="contents">
         <div class="contents_title">
-            <h2 data-aos="slide-up" data-aos-duration="1000" class="aos-init aos-animate"><span>공지사항</span></h2>
+            <h2 data-aos="slide-up" data-aos-duration="1000" class="aos-init aos-animate"><span>커뮤니티</span></h2>
         </div>
 
         <!-- contents_detail start -->

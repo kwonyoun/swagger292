@@ -30,8 +30,8 @@
 		<div id="branch-list" style="overflow-y: scroll; max-height: 600px; margin-left: 20px;" >
 			<c:forEach var="item" items="${vo}">
 				<div id="list-wrap" style="border-style: solid;border-color: #e5e7eb;">
-					<tr >
-						<h4>${item.branch}</h4>
+					<tr>
+						<h4><a href="${item.url}">${item.branch}</a></h4>
 						<a>${item.tel}</a><br>
 						<a>${item.address}</a>
 					</tr>

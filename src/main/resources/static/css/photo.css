@@ -1,0 +1,49 @@
+
+*{
+	font-family: 'NanumBarunGothicExtraLight';
+	font-family: 'NanumBarunGothicLight';
+	font-family: 'NanumBarunGothic';
+	font-family: 'NanumBarunGothicBold';
+}
+
+* {
+ 	margin: 0;
+ 	padding: 0;
+ }
+
+ ul, ol, li {
+ 	list-style: none;
+ }
+
+ a {
+ 	text-decoration: none;
+ 	color: #333;
+ }
+
+/*/////////////////////////////////////////////////////////*/
+
+/*/////////////////////////////////////////////////////////*/
+#wrap{
+
+}
+
+#content{
+	width: 1080px;
+	margin: 0 auto;
+	
+}
+
+#prod-wrap{
+	background-color: white;
+}
+
+ul.prod{
+	display: flex;
+	flex-wrap: wrap;
+	/* justify-content: space-between; */
+}
+
+ul.prod li{
+	/* width: 25%; */
+	margin: 15px;
+}

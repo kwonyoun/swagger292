@@ -9,4 +9,5 @@ public class TopBranchDTO {
     String tel;
     String x;
     String y;
+    String url;
 }
