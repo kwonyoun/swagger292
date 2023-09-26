@@ -48,6 +48,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	//security jakarta
 	implementation 'jakarta.servlet:jakarta.servlet-api:5.0.0'
+	//sec
+	implementation 'org.springframework.security:spring-security-taglibs:5.5.3'
 	
 
 }

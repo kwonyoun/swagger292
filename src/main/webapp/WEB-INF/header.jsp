@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,10 +47,14 @@
             <div class="top_member">
                 <ul>
                     <c:if test="${pageContext.request.userPrincipal.name != null}" >
+                        <sec:authorize access="hasRole('USER')">
+                            <li><a href="/myPage">${pageContext.request.userPrincipal.name}</a></li>
+                        </sec:authorize>
                         <li>${pageContext.request.userPrincipal.name}님</li>
                         <li>|</li>
                         <li><a href="/logout" class="login">로그아웃</a></li>
                     </c:if>
+
                     <c:if test="${pageContext.request.userPrincipal.name == null}" >
                         <li>${pageContext.request.userPrincipal.name}<a href="/login" class="login">로그인</a></li>
                         <li>|</li>

@@ -19,8 +19,8 @@
 	
 	var mapContainer = document.getElementById('map');
 	var mapOption = {
-		center: new kakao.maps.LatLng(37.658042, 127.044202),
-		level: 3
+		center: new kakao.maps.LatLng(37.55634, 126.9437),
+		level: 10
 	};
 
 	var map = new kakao.maps.Map(mapContainer, mapOption);
