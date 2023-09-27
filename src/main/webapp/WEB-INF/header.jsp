@@ -47,7 +47,7 @@
             <div class="top_member">
                 <ul>
                     <c:if test="${pageContext.request.userPrincipal.name != null}" >
-                        <sec:authorize access="hasRole('USER')">
+                        <sec:authorize access="hasRole('ADMIN')">
                             <li><a href="/myPage">${pageContext.request.userPrincipal.name}</a></li>
                         </sec:authorize>
                         <li>${pageContext.request.userPrincipal.name}님</li>
