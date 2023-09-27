@@ -48,9 +48,11 @@
                 <ul>
                     <c:if test="${pageContext.request.userPrincipal.name != null}" >
                         <sec:authorize access="hasRole('ADMIN')">
-                            <li><a href="/myPage">${pageContext.request.userPrincipal.name}</a></li>
+                            <li><a href="/myPage">${pageContext.request.userPrincipal.name}님</a></li>
                         </sec:authorize>
-                        <li>${pageContext.request.userPrincipal.name}님</li>
+                        <sec:authorize access="hasRole('USER')">
+                            <li>${pageContext.request.userPrincipal.name}님</li>
+                        </sec:authorize>
                         <li>|</li>
                         <li><a href="/logout" class="login">로그아웃</a></li>
                     </c:if>
