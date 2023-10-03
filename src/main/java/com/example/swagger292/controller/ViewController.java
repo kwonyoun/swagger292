@@ -109,5 +109,11 @@ public class ViewController {
 
         return mav;
     }
+
+    @GetMapping("/commnunity/write")
+    public ModelAndView commnunityWrite(){
+        ModelAndView mav = new ModelAndView("communityWrite");
+        return mav;
+    }
     
 }

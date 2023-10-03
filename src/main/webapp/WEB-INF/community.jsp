@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +9,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="/css/community.css"></link>
 </head>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <body>
     <jsp:include page="header.jsp"/>
     <!-- community -->
@@ -15,6 +17,13 @@
         <div class="contents_title">
             <h2 data-aos="slide-up" data-aos-duration="1000" class="aos-init aos-animate"><span>커뮤니티</span></h2>
         </div>
+
+        <!-- admin에게만 보여지는 글쓰기 -->
+        <c:if test="${pageContext.request.userPrincipal.name != null}" >
+            <sec:authorize access="hasRole('ADMIN')">
+                  <a href="/commnunity/write">글쓰기</a>
+            </sec:authorize>
+         </c:if>
 
         <!-- contents_detail start -->
         <div class="contents_detail">

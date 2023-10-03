@@ -34,5 +34,9 @@ public class CommunityService {
     public int getListCnt(PageVO pageVO) {
         return dao.getListCnt(pageVO);
     }
+
+    public void commnunityWriteProcess(CommunityVo vo){
+        dao.commnunityWriteProcess(vo);
+    }
     
 }

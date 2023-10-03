@@ -15,4 +15,9 @@
 	<select id="getListCnt" parameterType="com.example.swagger292.vo.PageVO" resultType="java.lang.Integer">
 		select count(*)	from community
 	</select>
+
+	<insert id="commnunityWriteProcess" parameterType="com.example.swagger292.vo.CommunityVo" >
+		insert into community values (default, #{title}, #{content}, default, #{userid}, default)
+	</insert>
+
 </mapper>

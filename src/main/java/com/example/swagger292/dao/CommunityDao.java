@@ -14,5 +14,6 @@ public interface CommunityDao {
     public ArrayList<CommunityVo> selectCommunity();
     public List<CommunityVo>getList(PageVO pageVO);
     public int getListCnt(PageVO pageVO);
+    public void commnunityWriteProcess(CommunityVo vo);
     
 }

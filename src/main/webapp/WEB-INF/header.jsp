@@ -48,7 +48,7 @@
                 <ul>
                     <c:if test="${pageContext.request.userPrincipal.name != null}" >
                         <sec:authorize access="hasRole('ADMIN')">
-                            <li><a href="/myPage">${pageContext.request.userPrincipal.name}님</a></li>
+                            <li>${pageContext.request.userPrincipal.name}님</li>
                         </sec:authorize>
                         <sec:authorize access="hasRole('USER')">
                             <li>${pageContext.request.userPrincipal.name}님</li>
