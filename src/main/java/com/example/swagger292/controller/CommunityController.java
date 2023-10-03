@@ -92,6 +92,15 @@ public class CommunityController {
 
         return mav;
     }
+
+    //커뮤니티 view
+    @GetMapping(value = "/community/view")
+    public ModelAndView communityView(@RequestParam("idno") int idno){
+        ModelAndView mav = new ModelAndView("communityView");
+        CommunityVo vo = svc.getCommunityView(idno);
+        mav.addObject("vo", vo);
+        return mav;
+    }
     
     
 }

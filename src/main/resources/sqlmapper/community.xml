@@ -20,4 +20,8 @@
 		insert into community values (default, #{title}, #{content}, default, #{userid}, default)
 	</insert>
 
+	<select id="getCommunityView" parameterType="int" resultType="com.example.swagger292.vo.CommunityVo">
+		select * from community where idno = ${idno}
+	</select>
+
 </mapper>

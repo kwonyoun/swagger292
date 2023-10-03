@@ -35,8 +35,14 @@ public class CommunityService {
         return dao.getListCnt(pageVO);
     }
 
+    //커뮤니티 글쓰기 insert
     public void commnunityWriteProcess(CommunityVo vo){
         dao.commnunityWriteProcess(vo);
     }
-    
+
+    //커뮤니티 view
+    public CommunityVo getCommunityView(int idno){
+        CommunityVo vo  = dao.getCommunityView(idno);
+        return vo;
+    }
 }
