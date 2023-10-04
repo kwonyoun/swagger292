@@ -83,13 +83,12 @@ public class CommunityController {
 
     @PostMapping(value = "/community/write/process")
     public ModelAndView commnunityWriteProcess(@RequestParam("title") String title, @RequestParam("content") String content, @AuthenticationPrincipal UserDetails user){
-        ModelAndView mav = new ModelAndView("community");
+        ModelAndView mav = new ModelAndView("redirect:/community");
         CommunityVo vo = new CommunityVo();
         vo.setTitle(title);
         vo.setContent(content);
         vo.setUserid(user.getUsername());
         svc.commnunityWriteProcess(vo);
-
         return mav;
     }
 

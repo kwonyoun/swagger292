@@ -29,10 +29,10 @@ public class LoginIdPwValidator implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String insertedId) throws UsernameNotFoundException {
-        System.out.println("insertedID: "+insertedId);
+        // System.out.println("insertedID: "+insertedId);
         Userinfo user = usersvc.getUserById(insertedId);
-        System.out.println("login access: "+user);
-        System.out.println("");
+        // System.out.println("login access: "+user);
+        // System.out.println("");
         
         if (user == null) {
             return null;
@@ -40,7 +40,7 @@ public class LoginIdPwValidator implements UserDetailsService {
         
         String pw = user.getUserpw(); //"d404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db"
         String roles = user.getRoles(); //"USER"
-        System.out.println("validator: "+pw+roles);
+        // System.out.println("validator: "+pw+"/roles: "+roles);
 
         return User.builder()
                 .username(insertedId)
