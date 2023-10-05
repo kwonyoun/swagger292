@@ -5,15 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <table width="100%" border="0" cellpadding="0" cellspacing="0" class="AWbbs_view_table border">
+        <input type="hidden" value=${vo.userid} id="postId">
+        <input type="hidden" value="${pageContext.request.userPrincipal.name}" id="loginId"
         <tbody>
             <tr>
                 <th colspan="2">${vo.title}</th>
             </tr>
             <tr>
-                    <td height="40">작성자 : 4시즌 테니스 아카데미(test@test.com) 작성일 : ${vo.date} 조회수 : ${vo.view}</td>
+                    <td height="40">작성자 : ${vo.userid} 작성일 : ${vo.date} 조회수 : ${vo.view}</td>
                     <td align="right"><!--추천 : 0--></td>
             </tr>
             
@@ -33,8 +36,48 @@
                     </table>
                     
                     <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                        <colgroup><col width="100%">
-                        </colgroup><tbody><tr><td valign="top"><p style="text-align: center; " align="center"><img name="wiz_target_resize" style="cursor:pointer" onclick="window.open(this.src)" src="/adm/data/webedit/20230921111026351947776.jpg" title="popup01.jpg"><br style="clear:both;">&nbsp;</p> </td></tr>
+                        <colgroup><col width="100%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <td valign="top">
+                                    <p style="text-align: center; " align="center">
+                                        
+                                    </p> 
+                                    <input type="text" id="content" value="" >
+                                    <button onclick="saveComment()">댓글작성</button>
+                                    
+                                    <script>
+                                        // 댓글 저장
+                                        function saveComment() {
+                                            
+                                            const content = document.getElementById('content').value;
+                                            const postId = document.getElementById('postId').value;
+                                            const loginId = document.getElementById('loginId').value;
+                                            alert(content+"/"+postId+"/"+loginId);
+                                            const params = {
+                                                postId : postId,
+                                                content : content,
+                                                userid : loginId
+                                            }
+
+                                            $.ajax({
+                                                url : `/comments`,
+                                                type : 'post',
+                                                contentType : 'application/json; charset=utf-8',
+                                                dataType : 'json',
+                                                data : JSON.stringify(params),
+                                                async : false,
+                                                success : function (response) {
+                                                    console.log(response);
+                                                },
+                                                error : function (request, status, error) {
+                                                    console.log(error)
+                                                }
+                                            })
+                                    }
+                                    </script>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>		
                 </td>
