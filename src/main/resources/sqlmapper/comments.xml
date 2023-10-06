@@ -5,7 +5,7 @@
 <mapper namespace="com.example.swagger292.dao.CommentsDao">
 
 	<insert id="commentsInsert" parameterType="com.example.swagger292.dto.CommentsDTO" >
-		insert into comments values (default, #{content}, #{userid}, default) 
+		insert into comments values (default, #{content}, #{userid}, default, ${commid}) 
 	</insert>
 
 </mapper>

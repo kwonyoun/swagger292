@@ -12,5 +12,6 @@ public class CommentsDTO {
     String content;
     String userid;
     String time;
+    int commid;
     
 }

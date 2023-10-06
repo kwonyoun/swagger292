@@ -7,10 +7,13 @@
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+<jsp:include page="header.jsp"/>
 <body>
     <table width="100%" border="0" cellpadding="0" cellspacing="0" class="AWbbs_view_table border">
         <input type="hidden" value=${vo.userid} id="postId">
-        <input type="hidden" value="${pageContext.request.userPrincipal.name}" id="loginId"
+        <input type="hidden" value="${pageContext.request.userPrincipal.name}" id="loginId" >
+        <input type="hidden" value="${vo.idno}" id="commid">
+        
         <tbody>
             <tr>
                 <th colspan="2">${vo.title}</th>
@@ -42,8 +45,8 @@
                                 <td valign="top">
                                     <p style="text-align: center; " align="center">
                                         
-                                    </p> 
-                                    <input type="text" id="content" value="" >
+                                    </p>
+                                    <input type="text" id="content" value="" > 
                                     <button onclick="saveComment()">댓글작성</button>
                                     
                                     <script>
@@ -53,28 +56,28 @@
                                             const content = document.getElementById('content').value;
                                             const postId = document.getElementById('postId').value;
                                             const loginId = document.getElementById('loginId').value;
-                                            alert(content+"/"+postId+"/"+loginId);
+                                            const commid = document.getElementById('commid').value;
                                             const params = {
                                                 postId : postId,
                                                 content : content,
-                                                userid : loginId
+                                                userid : loginId,
+                                                commid : commid
                                             }
 
                                             $.ajax({
                                                 url : `/comments`,
                                                 type : 'post',
                                                 contentType : 'application/json; charset=utf-8',
-                                                dataType : 'json',
                                                 data : JSON.stringify(params),
-                                                async : false,
-                                                success : function (response) {
-                                                    console.log(response);
+                                                success: function(data) {
+                                                    alert("댓글을 등록하였습니다.");                                                    
                                                 },
-                                                error : function (request, status, error) {
-                                                    console.log(error)
+                                                error: function(xhr, status, error) {
+                                                    console.error(error);
+                                                    alert("댓글 등록에 실패하였습니다.");
                                                 }
                                             })
-                                    }
+                                        }
                                     </script>
                                 </td>
                             </tr>
