@@ -8,4 +8,8 @@
 		insert into comments values (default, #{content}, #{userid}, default, ${commid}) 
 	</insert>
 
+	<select id="getCommentsList" parameterType="int" resultType="com.example.swagger292.dto.CommentsDTO" >
+		select * from comments where commid = ${commid}
+	</select>
+
 </mapper>

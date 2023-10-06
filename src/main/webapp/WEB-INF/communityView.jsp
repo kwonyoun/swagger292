@@ -70,13 +70,62 @@
                                                 contentType : 'application/json; charset=utf-8',
                                                 data : JSON.stringify(params),
                                                 success: function(data) {
-                                                    alert("댓글을 등록하였습니다.");                                                    
+                                                    alert("댓글을 등록하였습니다.");                                                  
                                                 },
                                                 error: function(xhr, status, error) {
                                                     console.error(error);
                                                     alert("댓글 등록에 실패하였습니다.");
                                                 }
                                             })
+                                        }
+
+                                        $(function(){
+                                            getCommentList();
+                                        });
+                                        
+                                        /**
+                                        * 댓글 불러오기(Ajax)
+                                        */
+                                        function getCommentList(){
+                                            
+                                            $.ajax({
+                                                type:'GET',
+                                                url : `/comments`,
+                                                data: commid,
+                                                contentType: "charset=UTF-8", 
+                                                success : function(data){
+                                                    
+                                                    var html = "";
+                                                    var cCnt = data.length;
+                                                    
+                                                    if(data.length > 0){
+                                                        
+                                                        for(i=0; i<data.length; i++){
+                                                            html += "<div>";
+                                                            html += "<div><table class='table'><h6><strong>"+data[i].writer+"</strong></h6>";
+                                                            html += data[i].comment + "<tr><td></td></tr>";
+                                                            html += "</table></div>";
+                                                            html += "</div>";
+                                                        }
+                                                        
+                                                    } else {
+                                                        
+                                                        html += "<div>";
+                                                        html += "<div><table class='table'><h6><strong>등록된 댓글이 없습니다.</strong></h6>";
+                                                        html += "</table></div>";
+                                                        html += "</div>";
+                                                        
+                                                    }
+                                                    
+                                                    $("#cCnt").html(cCnt);
+                                                    $("#commentList").html(html);
+                                                    
+                                                },
+                                                error:function(request,status,error){
+                                                    
+                                            }
+                                                
+                                            });
                                         }
                                     </script>
                                 </td>
