@@ -85,9 +85,12 @@
                                         /**
                                         * 댓글 불러오기(Ajax)
                                         */
+                                        window.onload = () => {
+                                            getCommentList();
+                                        }
                                         function getCommentList(){
                                             const commid = document.getElementById('commid').value;
-                                            alert("getlist: "+commid);
+                                            // alert("getlist: "+commid);
                                             
                                             $.ajax({
                                                 type:'GET',
