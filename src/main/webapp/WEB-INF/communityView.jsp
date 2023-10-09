@@ -48,7 +48,9 @@
                                     </p>
                                     <input type="text" id="content" value="" > 
                                     <button onclick="saveComment()">댓글작성</button>
-                                    
+                                    <span><strong>Comments</strong></span> <span id="cCnt"></span>
+                                    <div id="commentList">
+                                    </div>
                                     <script>
                                         // 댓글 저장
                                         function saveComment() {
@@ -65,12 +67,13 @@
                                             }
 
                                             $.ajax({
-                                                url : `/comments`,
+                                                url : `/comments`,  
                                                 type : 'post',
                                                 contentType : 'application/json; charset=utf-8',
                                                 data : JSON.stringify(params),
                                                 success: function(data) {
-                                                    alert("댓글을 등록하였습니다.");                                                  
+                                                    alert("댓글을 등록하였습니다.");
+                                                    getCommentList();                                              
                                                 },
                                                 error: function(xhr, status, error) {
                                                     console.error(error);
@@ -79,20 +82,18 @@
                                             })
                                         }
 
-                                        $(function(){
-                                            getCommentList();
-                                        });
-                                        
                                         /**
                                         * 댓글 불러오기(Ajax)
                                         */
                                         function getCommentList(){
+                                            const commid = document.getElementById('commid').value;
+                                            alert("getlist: "+commid);
                                             
                                             $.ajax({
                                                 type:'GET',
-                                                url : `/comments`,
-                                                data: commid,
-                                                contentType: "charset=UTF-8", 
+                                                url : `/comments/`+commid,
+                                                data:commid,
+                                                contentType: "application/json; charset=UTF-8", 
                                                 success : function(data){
                                                     
                                                     var html = "";
@@ -102,8 +103,8 @@
                                                         
                                                         for(i=0; i<data.length; i++){
                                                             html += "<div>";
-                                                            html += "<div><table class='table'><h6><strong>"+data[i].writer+"</strong></h6>";
-                                                            html += data[i].comment + "<tr><td></td></tr>";
+                                                            html += "<div><table class='table'><h6><strong>"+data[i].userid+"</strong></h6>";
+                                                            html += data[i].content + "<tr><td></td></tr>";
                                                             html += "</table></div>";
                                                             html += "</div>";
                                                         }
