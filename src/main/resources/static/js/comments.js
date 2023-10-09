@@ -69,13 +69,6 @@ function getCommentList(){
             }
             $("#cCnt").html(cCnt);
             $(".cm_list").html(commentHtml);
-            // for(i=0; i<data.length; i++){
-            //         commentHtml += "<div>";
-            //         commentHtml += "<div><table class='table'><h6><strong>"+data[i].userid+"</strong></h6>";
-            //         commentHtml += data[i].content + "<tr><td></td></tr>";
-            //         commentHtml += "</table></div>";
-            //         commentHtml += "</div>";
-            //     }
 
             // 4. class가 "cm_list"인 요소를 찾아 HTML을 렌더링
             document.querySelector('.cm_list').innerHTML = commentHtml;

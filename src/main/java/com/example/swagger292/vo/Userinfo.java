@@ -1,5 +1,7 @@
 package com.example.swagger292.vo;
 
+import javax.validation.constraints.NotBlank;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import lombok.Data;
@@ -7,8 +9,13 @@ import lombok.Data;
 @Data
 public class Userinfo {
     // private int userno;
+    @NotBlank(message = "아이디는 필수 입력사항 입니다.")
     private String userid;
+
+    @NotBlank(message = "비밀번호는 필수 입력사항 입니다.")
     private String userpw;
+
+    @NotBlank(message = "이름은 필수 입력사항 입니다.")
     private String username;
     private String roles;
 
