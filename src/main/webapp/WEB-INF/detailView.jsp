@@ -12,7 +12,7 @@
     <h3>${vo.svcnm}</h3>
     <table>
         <ul>
-            <li>대상 : ${vo.usetgtinfo}</li>
+            
             <li>지역 : ${vo.areanm}</li>
             <li>장소 : ${vo.placenm}</li>
             <li>용도 : ${vo.minclassnm}</li>

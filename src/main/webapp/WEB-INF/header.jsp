@@ -18,7 +18,7 @@
             </div>
             <ul class="gnb">
                 <li>
-                    <a href="/map" class="">서울 테니스장</a>
+                    <a href="/map" class="">공공 테니스장</a>
                 </li>
                 <li>
                     <a href="https://innate-leopon-786.notion.site/9b15f97de73d4fc0995ecff349145675?pvs=4" class="">notion</a>
@@ -26,14 +26,6 @@
                 <li>
                     <a href="/branch" class="">각 지점 소개</a>
                 </li>
-                <!-- <li>
-                    <a href="../sub/sub04_01.html" class="">스크린테니스</a>
-                    <ul class="sub_menu" style="display: none; height: 107.667px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
-                        <li><a href="../sub/sub04_02.html">스크린테니스</a></li>
-                        <li><a href="../sub/sub04_01.html">이용 안내</a></li>
-                        <li><a href="https://4stas.com/sub/login.php" target="_blank">온라인 예약</a></li>
-                    </ul>
-                </li> -->
                 <li>
                     <a href="/photo" class="">포토갤러리</a>
                 </li>
@@ -67,13 +59,4 @@
         </div>
     </nav>
 </header>
-<!-- <header>
-<div id="container" style="width: 1080px; margin: 0 auto; background-color: white;" >
-<a href="/login">로그인</a>
-<a href="/logout">logout</a>
-<a href="/signup">회원가입</a>
-<a href="/open-api/list">목록</a>
-${pageContext.request.userPrincipal.name}
-</div>
-</header> -->
 </html>

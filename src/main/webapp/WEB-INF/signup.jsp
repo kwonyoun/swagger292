@@ -157,6 +157,9 @@ a{color:inherit;text-decoration:none}
 .foot-lnk{
   text-align:center;
 }
+option{
+  color: black;
+}
 </style>
 <body>
     <div class="login-wrap">
@@ -181,6 +184,21 @@ a{color:inherit;text-decoration:none}
                         <label for="username" class="label">Name</label>
                         <input id="username" name="username" type="text" class="input">
                     </div>
+                    <div class="group">
+                      <label for="branch" class="label">Branch</label>
+                      <select id="branch" name="branch" class="input"> 
+                        <option>노원점</option>
+                        <option>옥수점</option>
+                        <option>마포점</option>
+                        <option>서강점</option>
+                        <option>이대점</option>
+                        <option>목동점</option>
+                        <option>신도림점</option>
+                        <option>선택하지않음</option>
+                      </select>
+                      
+                      
+                  </div>
                     <div class="group">
                       <button type="submit">회원가입</button>
                     </div>

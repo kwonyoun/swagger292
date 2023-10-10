@@ -14,7 +14,7 @@
 
 	<!-- 회원가입 -->
     <insert id="insertUser" parameterType="com.example.swagger292.vo.Userinfo" >
-        insert into userinfo values (default, #{userid}, #{userpw}, #{username}, #{roles})
+        insert into userinfo values (default, #{userid}, #{userpw}, #{username}, #{roles}, #{branchid})
     </insert>
 
     <!-- 회원 정보 가져오기 -->

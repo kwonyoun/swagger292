@@ -22,12 +22,33 @@ public class UserService {
 
     //회원가입
     public void signup(Userinfo userVo) { // 회원 가입
+        String branch = userVo.getBranchid();
+        String branchCode;
 
-		    // password는 암호화해서 DB에 저장           
-            userVo.setUserpw(passwordEncoder.encode(userVo.getUserpw()));
-            userVo.setRoles("USER");
-            System.out.println("svc: "+userVo);
-            dao.insertUser(userVo);
+        if (branch.equals("노원점")) {
+            branchCode = "1";
+        } else if (branch.equals("옥수점")) {
+            branchCode = "2";
+        } else if (branch.equals("마포점")) {
+            branchCode = "3";
+        } else if (branch.equals("서강점")) {
+            branchCode = "4";
+        } else if (branch.equals("이대점")) {
+            branchCode = "5";
+        } else if (branch.equals("목동점")) {
+            branchCode = "6";
+        } else if (branch.equals("신도림점")) {
+            branchCode = "7";
+        } else { 
+            branchCode = "8" ; 
+        }
+
+        // password는 암호화해서 DB에 저장           
+        userVo.setUserpw(passwordEncoder.encode(userVo.getUserpw()));
+        userVo.setRoles("USER");
+        userVo.setBranchid(branchCode);
+        System.out.println("svc: "+userVo);
+        dao.insertUser(userVo);
     }
 
     //로그인 
