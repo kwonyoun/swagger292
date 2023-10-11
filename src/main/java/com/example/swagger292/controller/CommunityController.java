@@ -87,16 +87,16 @@ public class CommunityController {
         CommunityVo vo = new CommunityVo();
         vo.setTitle(title);
         vo.setContent(content);
-        vo.setUserid(user.getUsername());
+        vo.setUserno(user.getUsername());
         svc.commnunityWriteProcess(vo);
         return mav;
     }
 
     //커뮤니티 view
     @GetMapping(value = "/community/view")
-    public ModelAndView communityView(@RequestParam("idno") int idno){
+    public ModelAndView communityView(@RequestParam("commid") int commid){
         ModelAndView mav = new ModelAndView("communityView");
-        CommunityVo vo = svc.getCommunityView(idno);
+        CommunityVo vo = svc.getCommunityView(commid);
         mav.addObject("vo", vo);
         return mav;
     }

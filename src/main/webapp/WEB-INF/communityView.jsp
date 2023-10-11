@@ -14,7 +14,7 @@
     <table width="100%" border="0" cellpadding="0" cellspacing="0" class="AWbbs_view_table border" style="margin-top: 100px;" >
         <input type="hidden" value=${vo.userid} id="postId">
         <input type="hidden" value="${pageContext.request.userPrincipal.name}" id="loginId" >
-        <input type="hidden" value="${vo.idno}" id="commid">
+        <input type="hidden" value="${vo.commid}" id="commid">
         
         <tbody>
             <tr>

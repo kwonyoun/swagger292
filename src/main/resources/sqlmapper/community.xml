@@ -9,7 +9,7 @@
 	</select>
 
     <select id="getList" parameterType="com.example.swagger292.vo.PageVO" resultType="com.example.swagger292.vo.CommunityVo">
-		select * from community Order by idno desc LIMIT ${recordCountPerPage} OFFSET ${firstIndex}
+		select * from community Order by  commid desc LIMIT ${recordCountPerPage} OFFSET ${firstIndex}
 	</select>
 
 	<select id="getListCnt" parameterType="com.example.swagger292.vo.PageVO" resultType="java.lang.Integer">
@@ -17,11 +17,15 @@
 	</select>
 
 	<insert id="commnunityWriteProcess" parameterType="com.example.swagger292.vo.CommunityVo" >
-		insert into community values (default, #{title}, #{content}, default, #{userid}, default)
+		INSERT INTO community (title, content, userno)
+		SELECT #{title}, #{content}, userinfo.userno
+		FROM userinfo
+		WHERE userinfo.userid = #{userno};
+
 	</insert>
 
 	<select id="getCommunityView" parameterType="int" resultType="com.example.swagger292.vo.CommunityVo">
-		select * from community where idno = ${idno}
+		select * from community where  commid = ${commid}
 	</select>
 
 </mapper>

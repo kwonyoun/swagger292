@@ -41,8 +41,8 @@ public class CommunityService {
     }
 
     //커뮤니티 view
-    public CommunityVo getCommunityView(int idno){
-        CommunityVo vo  = dao.getCommunityView(idno);
+    public CommunityVo getCommunityView(int commid){
+        CommunityVo vo  = dao.getCommunityView(commid);
         return vo;
     }
 }

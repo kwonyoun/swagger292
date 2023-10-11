@@ -50,9 +50,9 @@
                <c:forEach var="item" items="${boardList}">
                   <tr style="">
                      <td align="center"></td>
-                     <td align="center" height="38">${item.idno}</td>
+                     <td align="center" height="38">${item.commid}</td>
                      <th align="left" style="padding-left:10px; word-break:break-all;">
-                        <a href="/community/view?idno=${item.idno}">${item.title}</a>         </th>
+                        <a href="/community/view?commid=${item. commid}">${item.title}</a>         </th>
                      <td align="center">${item.userid}</td>
                      <td align="center">${item.date}</td>
                      <td align="center">${item.view}</td>
