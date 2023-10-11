@@ -10,8 +10,10 @@ import lombok.ToString;
 public class CommentsDTO {
     int idno;
     String content;
-    String userid;
+    String userno;
     String time;
     int commid;
+
+    String userid;
     
 }

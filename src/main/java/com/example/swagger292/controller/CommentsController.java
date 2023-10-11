@@ -30,6 +30,7 @@ public class CommentsController {
         @PostMapping
         public String comments(@RequestBody final CommentsDTO params) {
             try {
+                System.out.println(params.toString());
                 svc.commentsInsert(params);
                 return "success";
             } catch (Exception e) {

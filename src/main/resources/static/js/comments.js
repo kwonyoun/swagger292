@@ -6,9 +6,9 @@ function saveComment() {
     const loginId = document.getElementById('loginId').value;
     const commid = document.getElementById('commid').value;
     const params = {
-        postId : postId,
+        // postId : postId,
         content : content,
-        userid : loginId,
+        userno : loginId,
         commid : commid
     }
 

@@ -5,11 +5,17 @@
 <mapper namespace="com.example.swagger292.dao.CommentsDao">
 
 	<insert id="commentsInsert" parameterType="com.example.swagger292.dto.CommentsDTO" >
-		insert into comments values (default, #{content}, #{userid}, default, ${commid}) 
+		insert into comments (content, userno, commid)
+		SELECT #{content}, userinfo.userno , #{commid}
+		FROM userinfo
+		WHERE userinfo.userid = #{userno};
 	</insert>
 
 	<select id="getCommentsList" parameterType="int" resultType="com.example.swagger292.dto.CommentsDTO" >
-		select * from comments where commid = ${commid}
+		select comments.*, userinfo.userid 
+		from comments 
+		JOIN userinfo ON comments.userno = userinfo.userno
+		where comments.commid = ${commid}
 	</select>
 
 </mapper>

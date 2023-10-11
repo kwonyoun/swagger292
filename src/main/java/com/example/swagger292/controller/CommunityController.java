@@ -97,6 +97,7 @@ public class CommunityController {
     public ModelAndView communityView(@RequestParam("commid") int commid){
         ModelAndView mav = new ModelAndView("communityView");
         CommunityVo vo = svc.getCommunityView(commid);
+        System.out.println(vo);
         mav.addObject("vo", vo);
         return mav;
     }

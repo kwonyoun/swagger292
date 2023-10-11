@@ -25,7 +25,10 @@
 	</insert>
 
 	<select id="getCommunityView" parameterType="int" resultType="com.example.swagger292.vo.CommunityVo">
-		select * from community where  commid = ${commid}
+		SELECT community.*, userinfo.userid
+		FROM community
+		JOIN userinfo ON community.userno = userinfo.userno
+		WHERE community.commid = ${commid}
 	</select>
 
 </mapper>
