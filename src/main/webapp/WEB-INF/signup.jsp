@@ -222,7 +222,7 @@ option{
                 "username": document.getElementById('username').value,
                 "branchid": document.getElementById('branch').value
             };
-            alert(formData.branch+formData.userid);
+            // alert(formData.branchid+formData.userid);
 
 
             $.ajax({

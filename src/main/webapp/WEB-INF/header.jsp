@@ -40,9 +40,11 @@
                 <ul>
                     <c:if test="${pageContext.request.userPrincipal.name != null}" >
                         <sec:authorize access="hasRole('ADMIN')">
+                            <li><a href="/adminpage">관리자페이지</a></li>
                             <li>${pageContext.request.userPrincipal.name}님</li>
                         </sec:authorize>
                         <sec:authorize access="hasRole('USER')">
+                            <li><a href="/mypage">마이페이지</a></li>
                             <li>${pageContext.request.userPrincipal.name}님</li>
                         </sec:authorize>
                         <li>|</li>

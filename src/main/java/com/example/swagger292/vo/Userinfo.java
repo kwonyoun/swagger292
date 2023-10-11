@@ -19,6 +19,7 @@ public class Userinfo {
     private String username;
 
     private String branchid;
+    private String branch;
     private String roles;
 
     // private Userinfo(String id, String pw,String name, String roleUser,String branch) {

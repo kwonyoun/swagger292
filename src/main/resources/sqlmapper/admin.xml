@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.swagger292.dao.AdminDao">
+
+	<select id="selectUserList" resultType="com.example.swagger292.vo.Userinfo">
+		SELECT u.*, t.branch
+		FROM userinfo u
+		JOIN toptennis t ON u.branchid = t.branchid
+		WHERE u.permit = 'n';
+	</select>
+
+</mapper>

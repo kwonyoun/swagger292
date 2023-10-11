@@ -115,5 +115,17 @@ public class ViewController {
         ModelAndView mav = new ModelAndView("communityWrite");
         return mav;
     }
+
+    @GetMapping("/mypage")
+    public ModelAndView mypage(){
+        ModelAndView mav = new ModelAndView("mypage");
+        return mav;
+    }
+
+    // @GetMapping("/adminpage")
+    // public ModelAndView adminpage(){
+    //     ModelAndView mav = new ModelAndView("adminpage");
+    //     return mav;
+    // }
     
 }
