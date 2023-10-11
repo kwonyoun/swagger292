@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <style>
     body{
@@ -171,18 +172,18 @@ option{
               <div class="sign-in-htm">
                     <div class="group">
                         <label for="userid" class="label">ID</label>
-                        <input id="userid" name="userid" type="text" class="input">
+                        <input id="userid" name="userid" type="text" class="input" value="" >
                     </div>
                     <div class="group">
                         <label for="userpw" class="label">Password</label>
-                        <input id="userpw" name="userpw" type="password" class="input" data-type="password">
+                        <input id="userpw" name="userpw" type="password" class="input" data-type="password" value="" >
                     </div>
                     <div class="group">
                         <input type="password" class="input" data-type="password">
                     </div>
                     <div class="group">
                         <label for="username" class="label">Name</label>
-                        <input id="username" name="username" type="text" class="input">
+                        <input id="username" name="username" type="text" class="input" value="" >
                     </div>
                     <div class="group">
                       <label for="branch" class="label">Branch</label>
@@ -208,30 +209,40 @@ option{
       </div>
       <script>
           const form = document.getElementById('join_form');
-
+          // const data = new FormData(form);
+          // const param = JSON.stringify(Object.fromEntries(data));
+          
           form.addEventListener('submit', e => {
             e.preventDefault();
 
-            const data = new FormData(form);
-            const param = JSON.stringify(Object.fromEntries(data));
-            fetch('/signup/process', {
-              method: 'POST',
-              body: param,
-              headers: {
-                'Content-Type': 'application/json'
-              }
-            })
-              .then(response => {
-                  debugger;
-                  if (response.status == 200) {
-                      window.location.href = '/';
-                      alert("회원가입 성공")
-                  } else {
-                      alert("회원가입 실패")
-                  }
-              })  
-              .catch(error => console.log(error))
+            // 데이터를 객체로 만듦
+            const formData = {
+                "userid": document.getElementById('userid').value,
+                "userpw": document.getElementById('userpw').value,
+                "username": document.getElementById('username').value,
+                "branchid": document.getElementById('branch').value
+            };
+            alert(formData.branch+formData.userid);
+
+
+            $.ajax({
+                // 회원가입 수행 요청
+                type: "POST",
+                url: "/signup/process",
+                data: JSON.stringify(formData), // http body 데이터
+                contentType: "application/json; charset=utf-8", // body 데이터가 어떤 타입인지 (MIME)
+            }).done(function (resp) {
+                // 결과가 정상이면 done 실행
+                alert("회원가입이 완료되었습니다.");
+                //console.log(resp);
+                location.href = "/";
+            }).fail(function (error) {
+                // 실패하면 fail 실행
+                alert("회원가입이 실패하였습니다.");
+                alert(JSON.stringify(error));
+            });
           });
+          
       </script>
       
     </div>

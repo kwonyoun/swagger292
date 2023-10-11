@@ -2,15 +2,19 @@ package com.example.swagger292.service;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
 import com.example.swagger292.dao.UserDao;
 import com.example.swagger292.vo.Userinfo;
 
 @Service
+@Validated
 public class UserService {
 
     private final UserDao dao;
@@ -21,7 +25,7 @@ public class UserService {
     }
 
     //회원가입
-    public void signup(Userinfo userVo) { // 회원 가입
+    public void signup(@Valid Userinfo userVo) { // 회원 가입
         String branch = userVo.getBranchid();
         String branchCode;
 
