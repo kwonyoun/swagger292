@@ -37,5 +37,13 @@ public class AdminController {
         svc.updatePermit(userno);
         return mav;
     }
+
+    //신규회원 취소 버튼 메소드
+    @GetMapping(value = "/cancel")
+    public ModelAndView cancelMethod(@RequestParam("userno") int userno){
+        ModelAndView mav = new ModelAndView("redirect:/adminpage");
+        svc.cancelMethod(userno);
+        return mav;
+    }
     
 }

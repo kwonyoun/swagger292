@@ -15,4 +15,8 @@
 		update userinfo set permit = 'y' where  userno = ${userno}
 	</update>
 
+	<update id="cancelMethod" parameterType="int">
+		update userinfo set permit = 'c' where  userno = ${userno}
+	</update>
+
 </mapper>

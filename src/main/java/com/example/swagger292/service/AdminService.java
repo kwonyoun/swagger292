@@ -26,4 +26,9 @@ public class AdminService {
         dao.updatePermit(userno);
     }
 
+    //신규회원 취소 버튼 메소드(그대로 유지)
+    public void cancelMethod(int userno){
+        dao.cancelMethod(userno);
+    }
+
 }
