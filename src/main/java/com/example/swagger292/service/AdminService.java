@@ -15,10 +15,15 @@ public class AdminService {
         this.dao = dao;
     }
 
+    //신규회원 허가 대기 리스트
     public ArrayList<Userinfo> selectUserList(){
         ArrayList<Userinfo> list = dao.selectUserList();
         return list;
     }
     
+    //신규회원 허가 버튼 메소드
+    public void updatePermit(int userno){
+        dao.updatePermit(userno);
+    }
 
 }

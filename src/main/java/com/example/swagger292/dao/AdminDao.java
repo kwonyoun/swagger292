@@ -11,5 +11,6 @@ import com.example.swagger292.vo.Userinfo;
 public interface AdminDao {
 
     public ArrayList<Userinfo> selectUserList();
+    public void updatePermit(int userno);
     
 }

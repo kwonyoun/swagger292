@@ -16,6 +16,10 @@
             <td align="center" height="38">${item.userid}</td>
             <td align="center">${item.username}</td>
             <td align="center">${item.branch}</td>
+            <td>
+                <button><a href="/adminpage/permit?userno=${item.userno}">허가</a> </button>
+                <button><a href="/adminpage/permit?userno=${item.userno}">삭제</a> </button>
+            </td>
         </tr>
     </c:forEach>
 

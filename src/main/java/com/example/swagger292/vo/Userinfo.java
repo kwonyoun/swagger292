@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 public class Userinfo {
-    // private int userno;
+    private int userno;
     // @NotBlank(message = "아이디는 필수 입력사항 입니다.")
     private String userid;
 

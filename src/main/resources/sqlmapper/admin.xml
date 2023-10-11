@@ -11,4 +11,8 @@
 		WHERE u.permit = 'n';
 	</select>
 
+	<update id="updatePermit" parameterType="int" >
+		update userinfo set permit = 'y' where  userno = ${userno}
+	</update>
+
 </mapper>
