@@ -45,8 +45,8 @@
                         <td><pre>${vo.content }</pre></td>
                     </tr>
                 </table>
-                <button><a href="/community/edit/${vo.commid}">수정</a></button>
-                <input class="btn" type="button" value="글 삭제">
+                <button><a href="/community/edit/${vo.commid}">글 수정</a></button>
+                <button><a href="/community/delete/${vo.commid}">글 삭제</a></button>
                 <input class="btn" type="button" value="목록으로" onclick="location.href='/community'">
             
         </div>

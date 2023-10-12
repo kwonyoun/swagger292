@@ -35,4 +35,8 @@
 		update community set title = #{title}, content = #{content} where commid = ${commid}
 	</update>
 
+	<delete id="deletePost" parameterType="int">
+		delete from community where commid = ${commid}
+	</delete>
+
 </mapper>

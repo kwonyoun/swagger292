@@ -17,5 +17,5 @@ public interface CommunityDao {
     public void commnunityWriteProcess(CommunityVo vo);
     public CommunityVo getCommunityView(int commid);
     public void editCommunity(CommunityVo vo);
-    
+    public void deletePost(int commid);
 }

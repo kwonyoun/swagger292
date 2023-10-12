@@ -50,4 +50,9 @@ public class CommunityService {
     public void editCommunity(CommunityVo vo){
         dao.editCommunity(vo);
     }
+
+    //커뮤니티 게시글 delete
+    public void deletePost(int commid){
+        dao.deletePost(commid);
+    }
 }

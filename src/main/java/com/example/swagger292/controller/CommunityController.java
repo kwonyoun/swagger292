@@ -99,7 +99,7 @@ public class CommunityController {
     public ModelAndView communityView(@RequestParam("commid") int commid){
         ModelAndView mav = new ModelAndView("communityView");
         CommunityVo vo = svc.getCommunityView(commid);
-        System.out.println(vo);
+        // System.out.println(vo);
         mav.addObject("vo", vo);
         return mav;
     }
@@ -109,7 +109,7 @@ public class CommunityController {
     public ModelAndView communityEditPage(@PathVariable("commid") int commid){
         ModelAndView mav = new ModelAndView("communityEdit");
         CommunityVo vo = svc.getCommunityView(commid);
-        System.out.println(vo);
+        // System.out.println(vo);
         mav.addObject("vo", vo);
         return mav;
     }
@@ -120,7 +120,14 @@ public class CommunityController {
         int commid = vo.getCommid();
         svc.editCommunity(vo);
         ModelAndView mav = new ModelAndView("redirect:/community/view?commid="+commid);
+        return mav;
+    }
 
+    //커뮤니티 글 삭제
+    @GetMapping(value = "/community/delete/{commid}")
+    public ModelAndView communityDelte(@PathVariable("commid") int commid){
+        ModelAndView mav = new ModelAndView("redirect:/community");
+        svc.deletePost(commid);
         return mav;
     }
     
