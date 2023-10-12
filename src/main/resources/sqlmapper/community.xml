@@ -31,4 +31,8 @@
 		WHERE community.commid = ${commid}
 	</select>
 
+	<update id="editCommunity" parameterType="com.example.swagger292.vo.CommunityVo" >
+		update community set title = #{title}, content = #{content} where commid = ${commid}
+	</update>
+
 </mapper>

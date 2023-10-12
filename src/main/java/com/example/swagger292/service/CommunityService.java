@@ -45,4 +45,9 @@ public class CommunityService {
         CommunityVo vo  = dao.getCommunityView(commid);
         return vo;
     }
+
+    //커뮤니티 edit
+    public void editCommunity(CommunityVo vo){
+        dao.editCommunity(vo);
+    }
 }

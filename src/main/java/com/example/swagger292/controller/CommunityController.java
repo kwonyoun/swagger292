@@ -16,7 +16,9 @@ import java.util.List;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -99,6 +101,26 @@ public class CommunityController {
         CommunityVo vo = svc.getCommunityView(commid);
         System.out.println(vo);
         mav.addObject("vo", vo);
+        return mav;
+    }
+
+    //커뮤니티 수정페이지
+    @GetMapping(value = "/community/edit/{commid}")
+    public ModelAndView communityEditPage(@PathVariable("commid") int commid){
+        ModelAndView mav = new ModelAndView("communityEdit");
+        CommunityVo vo = svc.getCommunityView(commid);
+        System.out.println(vo);
+        mav.addObject("vo", vo);
+        return mav;
+    }
+
+    //커뮤니티 수정메소드
+    @PostMapping(value = "/community/edit/{commid}")
+    public ModelAndView communityEdit(CommunityVo vo){
+        int commid = vo.getCommid();
+        svc.editCommunity(vo);
+        ModelAndView mav = new ModelAndView("redirect:/community/view?commid="+commid);
+
         return mav;
     }
     

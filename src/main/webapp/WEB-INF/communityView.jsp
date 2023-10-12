@@ -21,8 +21,13 @@
                 <th colspan="2">${vo.title}</th>
             </tr>
             <tr>
-                    <td height="40">작성자 : ${vo.userid} 작성일 : ${vo.date} 조회수 : ${vo.view}</td>
-                    <td align="right">${vo.content}</td>
+                    <td height="40">작성자 : ${vo.userid}  </td>
+                    <td height="40">작성일 : ${vo.date}</td>
+                    <td height="40">조회수 : ${vo.view}</td>
+                    <td height="40">${vo.content}</td>
+                    <td align="right">
+                        <button><a href="/community/edit/${vo.commid}">수정</a></button>
+                    </td>
             </tr>
             <tr>
                 <td colspan="2" style="padding:20px 16px;">
