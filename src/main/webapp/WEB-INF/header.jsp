@@ -49,8 +49,9 @@
                         </sec:authorize>
                         <li>|</li>
                         <li><a href="/logout" class="login">로그아웃</a></li>
+                        
                     </c:if>
-
+                    <a href="/signup" sec:authorize="isAnonymous()">회원가입</a>
                     <c:if test="${pageContext.request.userPrincipal.name == null}" >
                         <li>${pageContext.request.userPrincipal.name}<a href="/login" class="login">로그인</a></li>
                         <li>|</li>

@@ -55,4 +55,8 @@ public class CommunityService {
     public void deletePost(int commid){
         dao.deletePost(commid);
     }
+
+    public void viewCountUp(Long boardId) {
+        Board board = findById(boardId);
+        
 }

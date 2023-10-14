@@ -13,6 +13,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -129,6 +133,36 @@ public class CommunityController {
         ModelAndView mav = new ModelAndView("redirect:/community");
         svc.deletePost(commid);
         return mav;
+    }
+
+    private void viewCountUp(Long id, HttpServletRequest req, HttpServletResponse res) {
+
+        Cookie oldCookie = null;
+
+        Cookie[] cookies = req.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("boardView")) {
+                    oldCookie = cookie;
+                }
+            }
+        }
+
+        if (oldCookie != null) {
+            if (!oldCookie.getValue().contains("[" + id.toString() + "]")) {
+                svc.viewCountUp(id);
+                oldCookie.setValue(oldCookie.getValue() + "_[" + id + "]");
+                oldCookie.setPath("/");
+                oldCookie.setMaxAge(60 * 60 * 24);
+                res.addCookie(oldCookie);
+            }
+        } else {
+            svc.viewCountUp(id);
+            Cookie newCookie = new Cookie("boardView","[" + id + "]");
+            newCookie.setPath("/");
+            newCookie.setMaxAge(60 * 60 * 24);
+            res.addCookie(newCookie);
+        }
     }
     
     
