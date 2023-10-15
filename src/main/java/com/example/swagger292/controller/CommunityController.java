@@ -135,35 +135,35 @@ public class CommunityController {
         return mav;
     }
 
-    private void viewCountUp(Long id, HttpServletRequest req, HttpServletResponse res) {
+    // private void viewCountUp(Long id, HttpServletRequest req, HttpServletResponse res) {
 
-        Cookie oldCookie = null;
+    //     Cookie oldCookie = null;
 
-        Cookie[] cookies = req.getCookies();
-        if (cookies != null) {
-            for (Cookie cookie : cookies) {
-                if (cookie.getName().equals("boardView")) {
-                    oldCookie = cookie;
-                }
-            }
-        }
+    //     Cookie[] cookies = req.getCookies();
+    //     if (cookies != null) {
+    //         for (Cookie cookie : cookies) {
+    //             if (cookie.getName().equals("boardView")) {
+    //                 oldCookie = cookie;
+    //             }
+    //         }
+    //     }
 
-        if (oldCookie != null) {
-            if (!oldCookie.getValue().contains("[" + id.toString() + "]")) {
-                svc.viewCountUp(id);
-                oldCookie.setValue(oldCookie.getValue() + "_[" + id + "]");
-                oldCookie.setPath("/");
-                oldCookie.setMaxAge(60 * 60 * 24);
-                res.addCookie(oldCookie);
-            }
-        } else {
-            svc.viewCountUp(id);
-            Cookie newCookie = new Cookie("boardView","[" + id + "]");
-            newCookie.setPath("/");
-            newCookie.setMaxAge(60 * 60 * 24);
-            res.addCookie(newCookie);
-        }
-    }
+    //     if (oldCookie != null) {
+    //         if (!oldCookie.getValue().contains("[" + id.toString() + "]")) {
+    //             svc.viewCountUp(id);
+    //             oldCookie.setValue(oldCookie.getValue() + "_[" + id + "]");
+    //             oldCookie.setPath("/");
+    //             oldCookie.setMaxAge(60 * 60 * 24);
+    //             res.addCookie(oldCookie);
+    //         }
+    //     } else {
+    //         svc.viewCountUp(id);
+    //         Cookie newCookie = new Cookie("boardView","[" + id + "]");
+    //         newCookie.setPath("/");
+    //         newCookie.setMaxAge(60 * 60 * 24);
+    //         res.addCookie(newCookie);
+    //     }
+    // }
     
     
 }
