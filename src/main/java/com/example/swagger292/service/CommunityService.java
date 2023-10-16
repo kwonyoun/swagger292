@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.swagger292.dao.CommunityDao;
 import com.example.swagger292.dao.TennisDao;
@@ -56,8 +57,10 @@ public class CommunityService {
         dao.deletePost(commid);
     }
 
-    // public void viewCountUp(Long boardId) {
-    //     Board board = findById(boardId);
-    // }
+   /* Views Counting */
+	@Transactional
+	public void viewCountUp(int commid) {
+		this.dao.viewCountUp(commid);
+	}
         
 }

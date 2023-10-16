@@ -39,4 +39,8 @@
 		delete from community where commid = ${commid}
 	</delete>
 
+	<update id="viewCountUp" parameterType="int">
+		update community set view = view+1 where commid = ${commid}
+	</update>
+
 </mapper>

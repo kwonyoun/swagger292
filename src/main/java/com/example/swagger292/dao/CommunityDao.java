@@ -18,4 +18,5 @@ public interface CommunityDao {
     public CommunityVo getCommunityView(int commid);
     public void editCommunity(CommunityVo vo);
     public void deletePost(int commid);
+    public void viewCountUp(int commid);
 }

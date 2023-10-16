@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -100,12 +101,46 @@ public class CommunityController {
 
     //커뮤니티 view
     @GetMapping(value = "/community/view")
-    public ModelAndView communityView(@RequestParam("commid") int commid){
+    public ModelAndView communityView(@RequestParam("commid") int commid, HttpServletRequest request,HttpServletResponse response){
         ModelAndView mav = new ModelAndView("communityView");
         CommunityVo vo = svc.getCommunityView(commid);
         // System.out.println(vo);
         mav.addObject("vo", vo);
+        viewCountUp(commid, request, response);
+
         return mav;
+    } 
+
+    private void viewCountUp(int commid, HttpServletRequest request, HttpServletResponse response) {
+
+        /* 조회수 로직 */
+		Cookie oldCookie = null;
+		Cookie[] cookies = request.getCookies();
+		if (cookies != null) {
+			for (Cookie cookie : cookies) {
+				if (cookie.getName().equals("communityView")) {
+					oldCookie = cookie;
+				}
+			}
+		}
+
+        if (oldCookie != null) {
+            if (!oldCookie.getValue().contains("[" + commid + "]")) {
+                svc.viewCountUp(commid);
+                oldCookie.setValue(oldCookie.getValue() + "_[" + commid + "]");
+                oldCookie.setPath("/");
+                oldCookie.setMaxAge(60 * 60 * 24);  // 쿠키 시간
+                response.addCookie(oldCookie);
+            }
+        } else {
+            svc.viewCountUp(commid);
+            Cookie newCookie = new Cookie("communityView","[" + commid + "]");
+            newCookie.setPath("/");
+            newCookie.setMaxAge(60 * 60 * 24);  // 쿠키 시간
+            response.addCookie(newCookie);
+        }
+
+        
     }
 
     //커뮤니티 수정페이지
@@ -135,35 +170,50 @@ public class CommunityController {
         return mav;
     }
 
-    // private void viewCountUp(Long id, HttpServletRequest req, HttpServletResponse res) {
+   
 
-    //     Cookie oldCookie = null;
-
-    //     Cookie[] cookies = req.getCookies();
-    //     if (cookies != null) {
-    //         for (Cookie cookie : cookies) {
-    //             if (cookie.getName().equals("boardView")) {
-    //                 oldCookie = cookie;
-    //             }
-    //         }
-    //     }
-
-    //     if (oldCookie != null) {
-    //         if (!oldCookie.getValue().contains("[" + id.toString() + "]")) {
-    //             svc.viewCountUp(id);
-    //             oldCookie.setValue(oldCookie.getValue() + "_[" + id + "]");
-    //             oldCookie.setPath("/");
-    //             oldCookie.setMaxAge(60 * 60 * 24);
-    //             res.addCookie(oldCookie);
-    //         }
-    //     } else {
-    //         svc.viewCountUp(id);
-    //         Cookie newCookie = new Cookie("boardView","[" + id + "]");
-    //         newCookie.setPath("/");
-    //         newCookie.setMaxAge(60 * 60 * 24);
-    //         res.addCookie(newCookie);
-    //     }
-    // }
+    // @RequestMapping("/detail/{cate}/{id}")
+	// public String detail(Model model, 
+	// 		@PathVariable("id") Integer id, 
+	// 		@PathVariable("cate") String cate,
+	// 		AnswerForm answerForm, CommentForm commentForm, 
+	// 		@RequestParam(value="page", defaultValue="0") int page,
+	// 		HttpServletRequest request,
+    //         HttpServletResponse response) {
+	// 	Question question = this.questionService.getQuestion(id);
+		
+	// 	/* 조회수 로직 */
+	// 	Cookie oldCookie = null;
+	// 	Cookie[] cookies = request.getCookies();
+	// 	if (cookies != null) {
+	// 		for (Cookie cookie : cookies) {
+	// 			if (cookie.getName().equals("postView")) {
+	// 				oldCookie = cookie;
+	// 			}
+	// 		}
+	// 	}
+		
+	// 	if (oldCookie != null) {
+	// 		if (!oldCookie.getValue().contains("["+ id.toString() +"]")) {
+	// 			this.questionService.updateView(id);
+	// 			oldCookie.setValue(oldCookie.getValue() + "_[" + id + "]");
+	// 			oldCookie.setPath("/");
+	// 			oldCookie.setMaxAge(60 * 60 * 24); 							// 쿠키 시간
+	// 			response.addCookie(oldCookie);
+	// 		}
+	// 	} else {
+	// 		this.questionService.updateView(id);
+	// 		Cookie newCookie = new Cookie("postView", "[" + id + "]");
+	// 		newCookie.setPath("/");
+	// 		newCookie.setMaxAge(60 * 60 * 24); 								// 쿠키 시간
+	// 		response.addCookie(newCookie);
+	// 	}
+        
+	// 	Page<Answer> answerPaging = this.answerService.getAnswerList(id, page);				// answerList는 페이징처리하여 별도로 조회하기
+	// 	model.addAttribute("question", question);
+	// 	model.addAttribute("answerPaging", answerPaging);
+	// 	return "/question/question_detail";
+	// }
     
     
 }
