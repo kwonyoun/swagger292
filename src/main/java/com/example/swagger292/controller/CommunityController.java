@@ -118,7 +118,7 @@ public class CommunityController {
 		Cookie[] cookies = request.getCookies();
 		if (cookies != null) {
 			for (Cookie cookie : cookies) {
-				if (cookie.getName().equals("communityView")) {
+				if (cookie.getName().equals("visit_cookie")) {
 					oldCookie = cookie;
 				}
 			}
@@ -126,18 +126,18 @@ public class CommunityController {
 
         if (oldCookie != null) {
             if (!oldCookie.getValue().contains("[" + commid + "]")) {
-                svc.viewCountUp(commid);
                 oldCookie.setValue(oldCookie.getValue() + "_[" + commid + "]");
                 oldCookie.setPath("/");
-                oldCookie.setMaxAge(60 * 60 * 24);  // 쿠키 시간
+                oldCookie.setMaxAge(60 * 60 * 2);  // 쿠키 시간
                 response.addCookie(oldCookie);
+                svc.viewCountUp(commid);
             }
         } else {
-            svc.viewCountUp(commid);
-            Cookie newCookie = new Cookie("communityView","[" + commid + "]");
+            Cookie newCookie = new Cookie("visit_cookie","[" + commid + "]");
             newCookie.setPath("/");
-            newCookie.setMaxAge(60 * 60 * 24);  // 쿠키 시간
+            newCookie.setMaxAge(60 * 60 * 2);  // 쿠키 시간
             response.addCookie(newCookie);
+            svc.viewCountUp(commid);
         }
 
         
