@@ -127,15 +127,16 @@ public class CommunityController {
         if (oldCookie != null) {
             if (!oldCookie.getValue().contains("[" + commid + "]")) {
                 oldCookie.setValue(oldCookie.getValue() + "_[" + commid + "]");
-                oldCookie.setPath("/");
-                oldCookie.setMaxAge(60 * 60 * 2);  // 쿠키 시간
+                oldCookie.setPath("/"); //모든 경로에서 쿠키가 유효함
+                oldCookie.setMaxAge(60 * 60 * 2);  // 쿠키 2시간 유지
                 response.addCookie(oldCookie);
                 svc.viewCountUp(commid);
             }
         } else {
+            //쿠키가 존재하지않다면, "visit_cookie"로 key값을 생성하고 commid를 value값으로 저장한다.
             Cookie newCookie = new Cookie("visit_cookie","[" + commid + "]");
-            newCookie.setPath("/");
-            newCookie.setMaxAge(60 * 60 * 2);  // 쿠키 시간
+            newCookie.setPath("/"); //모든 경로에서 쿠키가 유효함
+            newCookie.setMaxAge(60 * 60 * 2);  // 쿠키 2시간 유지
             response.addCookie(newCookie);
             svc.viewCountUp(commid);
         }
