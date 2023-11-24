@@ -12,7 +12,7 @@ import com.example.swagger292.dto.TennisDTO;
 import com.example.swagger292.dto.TopBranchDTO;
 import com.example.swagger292.service.TennisService;
 
-import lombok.experimental.var;
+// import lombok.experimental.var;
 
 @Controller
 public class KakaoMapApiController {
