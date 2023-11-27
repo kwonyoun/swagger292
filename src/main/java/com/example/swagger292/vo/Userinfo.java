@@ -17,20 +17,21 @@ public class Userinfo {
     private String branch;
     private String roles;
 
-    // private Userinfo(String id, String pw,String name, String roleUser,String branch) {
-    //     // this.userno = userno;
-    //     this.userid = id;
-    //     this.userpw = pw;
-    //     this.username=name;
-    //     this.roles = roleUser;
-    //     this.branch = branch;
-    // }
+    private Userinfo(String userid, String userpw,String username, String roles,String branch) {
+        // this.userno = userno;
+        this.userid = userid;
+        this.userpw = userpw;
+        this.username=username;
+        this.roles = roles;
+        this.branch = branch;
+    }
 
-    // protected Userinfo() {}
+    protected Userinfo() {}
 
-    // public static Userinfo createUser(Userinfo vo, PasswordEncoder passwordEncoder) {
-    //     //여기서 비밀번호 암호화 처리함 .encode()
-    //     return new Userinfo(vo.getUserid(), passwordEncoder.encode(vo.getUserpw()),vo.getUsername(),"USER",vo.getBranch());
-    // }
+    public static Userinfo createUser(Userinfo vo, PasswordEncoder passwordEncoder) {
+        System.out.println("hhh  "+vo);
+        //여기서 비밀번호 암호화 처리함 .encode()
+        return new Userinfo(vo.getUserid(), passwordEncoder.encode(vo.getUserpw()),vo.getUsername(),"USER",vo.getBranchid());
+    }
     
 }

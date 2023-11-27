@@ -38,6 +38,7 @@ public class SignupController {
         try {            
             //가입 insert
             System.out.println("access");
+            vo.setRoles("USER");
             usersvc.signup(vo); 
             return ResponseEntity.ok("success"); //스웨거에서 확인 시 이 문구가 나온다. 
 

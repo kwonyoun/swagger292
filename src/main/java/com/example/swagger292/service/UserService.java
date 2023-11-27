@@ -28,7 +28,7 @@ public class UserService {
     public void signup(@Valid Userinfo userVo) { // 회원 가입
         String branch = userVo.getBranchid();
         String branchCode;
-
+System.out.println("svc");
         if (branch.equals("노원점")) {
             branchCode = "1";
         } else if (branch.equals("옥수점")) {
@@ -46,12 +46,14 @@ public class UserService {
         } else { 
             branchCode = "8" ; 
         }
+        userVo.setBranchid(branchCode);
 
         // password는 암호화해서 DB에 저장           
-        userVo.setUserpw(passwordEncoder.encode(userVo.getUserpw()));
-        userVo.setRoles("USER");
-        userVo.setBranchid(branchCode);
-        System.out.println("svc: "+userVo);
+        Userinfo.createUser(userVo, passwordEncoder); //Userinfo의 메서드 creatUser가 static이기 때문에 클래스의 인스턴스를 호출하고 않고, 직접 호출할 수 있다!
+        // userVo.setUserpw(passwordEncoder.encode(userVo.getUserpw()));
+        // userVo.setRoles("USER");
+        
+        // System.out.println("svc: "+userVo);
         dao.insertUser(userVo);
     }
 
